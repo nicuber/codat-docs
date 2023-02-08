@@ -63,7 +63,8 @@
     "remark-parse": "^10.0.1",
     "sass": "^1.44.0",
     "semver": "^7.3.5",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "userflow.js": "^2.7.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.3.0",
