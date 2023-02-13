@@ -37,10 +37,10 @@ This query retrieves records with modified dates that are greater than or equal 
 - If the `sourceModifiedDate` changes, the `modifiedDate` will also change, even if none of the values we pull were modified. This can happen as there may be additional data types in the source not mapped to the Codat data model.
 - If the Codat data model changes (e.g. we add a new data type), the `modifiedDate` will change, even if the values of the data didn't change.
 - The `modifiedDate` is available for all data types _except_ for the following:
-  - attachments
-  - balance sheets
-  - company information
-  - profit & loss reports
+  - Attachments
+  - Balance Sheet
+  - Company Information
+  - Profit and Loss
 
 ## Source modified date
 
