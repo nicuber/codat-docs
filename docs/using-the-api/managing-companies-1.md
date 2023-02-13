@@ -22,7 +22,7 @@ To create a new company, use the `POST /companies` endpoint and provide a name y
 The name of the company doesn't have to be unique. It's just there to help you identify the company in the portal. Make sure to [avoid forbidden characters](/core-concepts/companies).
 :::
 
-You can also add the `platformType` parameter to specify an integration platform you would like to set up for the new company. [Retrieve the platform key](/your-first-call-to-the-api-using-api-explorer#retrieve-platform-keys) first and then use it in your request.
+You can also add the `platformType` parameter to specify an integration platform you would like to set up for the new company. [Retrieve the platform key](/integrations/accounting/accounting-platform-keys) first and then use it in your request.
 
 ```json Sample request
 {
@@ -41,7 +41,7 @@ You can also add the `platformType` parameter to specify an integration platform
 }
 ```
 
-You can also find accounting platform keys [here](/accounting-platform-keys) and commerce platform keys [here](/commerce-platform-keys).
+You can also find accounting platform keys [here](/integrations/accounting/accounting-platform-keys) and commerce platform keys [here](/integrations/commerce/commerce-platform-keys).
 
 :::caution Retain the company ID
 
@@ -50,7 +50,7 @@ The `id` property that you receive in the response is the unique Codat identifie
 
 ## Redirect the user
 
-Send the user to the `redirect` URL returned in the previous step. They will be sent to [Link](/authorize-hosted-link) where they can select their accounting software and complete the linking process.
+Send the user to the `redirect` URL returned in the previous step. They will be sent to [Link](/auth-flow/authorize-hosted-link) where they can select their accounting software and complete the linking process.
 
 Once the user has completed the Link flow, the Codat platform will redirect them to the redirect URL you have configured in the **Settings > Auth flow > Link** in the Codat Portal. This URL can include the Codat `companyId` as well as any other custom query parameters.
 
@@ -65,7 +65,7 @@ Once your user is redirected to the redirect URL page, the linking process is co
 
 ## Check data freshness
 
-Use the `GET /companies/{companyId}/dataStatus` endpoint to check the [last time each data type was synchronized](/data-status).
+Use the `GET /companies/{companyId}/dataStatus` endpoint to check the [last time each data type was synchronized](/core-concepts/status).
 
 In this request, `companyId` is [the unique ID that you have received in a response to creating this company](/using-the-api/managing-companies-1#create-a-codat-company).
 
@@ -101,9 +101,9 @@ When you’re pulling data for the first time, use this endpoint to check if the
 
 ## Queue a new data sync (Optional)
 
-If there are datasets which are not as up-to-date as you require, you can queue a data sync as described [here](/queueing-data-syncs).
+If there are datasets which are not as up-to-date as you require, you can queue a data sync as described [here](/using-the-api/queueing-data-syncs-1).
 
-Once you've queued the sync, you can poll the [GET /companies/{companyId}/dataStatus](/codat-api#/operations/get-companies-companyId-dataStatus) endpoint (as described above) to [monitor progress of the sync](/data-status).
+Once you've queued the sync, you can poll the [GET /companies/{companyId}/dataStatus](/codat-api#/operations/get-companies-companyId-dataStatus) endpoint (as described above) to [monitor progress of the sync](/core-concepts/status).
 
 :::note
 
@@ -136,6 +136,6 @@ Creating a new company may cause additional data to be pulled from the platform 
 
 ## Redirect the user to complete the auth flow
 
-Get a `redirect` URL for the company by following the process [here](/authorize-hosted-link). Send the user to the `redirect` URL. They will be prompted to select their accounting software and complete the linking process using the [Link flow](/auth-flow/overview).
+Get a `redirect` URL for the company by following the process [here](/auth-flow/authorize-hosted-link). Send the user to the `redirect` URL. They will be prompted to select their accounting software and complete the linking process using the [Link flow](/auth-flow/overview).
 
 Once the user finishes the Link flow, they will be redirected back to the Redirect URL, as described [earlier in this guide](/using-the-api/managing-companies-1#redirect-the-user). At this point the re-authorization process is complete and their data has begun synchronizing again.
