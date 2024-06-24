@@ -2,8 +2,7 @@
 title: "Set up your TrueLayer integration"
 slug: "set-up-truelayer-2"
 description: "Explore our API integration with TrueLayer"
-createdAt: "2020-07-21T10:07:43.941Z"
-updatedAt: "2022-12-23T10:58:43.275Z"
+sidebar_label: Setup
 ---
 
 Before you can access your SMB customers' banking data from TrueLayer, you need to set up the integration.
@@ -18,7 +17,7 @@ You'll need to:
 
 :::note Testing the TrueLayer integration
 
-If you use TrueLayer's live environment, you can test TrueLayer using either the Demo Bank data source, or live bank accounts. For more information, see [Test your TrueLayer integration](/test-truelayer).
+If you use TrueLayer's live environment, you can test TrueLayer using either the Demo Bank data source, or live bank accounts. For more information, see [Test your TrueLayer integration](/integrations/banking/truelayer/test-truelayer).
 :::
 
 ## Retrieve your secure keys from TrueLayer
@@ -59,7 +58,7 @@ You need to configure the TrueLayer integration in the [Codat Portal](https://ap
 1. On the navigation bar, select **Settings > Integrations > Banking**.
 2. Click **Set up** on the **TrueLayer** tile.  
    The **Integration settings** page for TrueLayer is displayed.
-3. Find the [secure keys you retrieved from TrueLayer](/set-up-truelayer-2#retrieve-your-secure-keys-from-truelayer).
+3. Find the [secure keys you retrieved from TrueLayer](/integrations/banking/truelayer/set-up-truelayer-2#retrieve-your-secure-keys-from-truelayer).
 4. On the **Integration settings** page, enter your secure keys from TrueLayer:
    - Enter the **client_id** in the **Client ID** box.
    - Enter the **client_secret** in the **Client Secret** box.

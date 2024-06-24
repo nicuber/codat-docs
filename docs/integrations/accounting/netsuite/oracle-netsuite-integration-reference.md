@@ -1,8 +1,7 @@
 ---
 title: "Oracle NetSuite integration reference"
 description: "Things to know when synchronizing data with Oracle NetSuite."
-createdAt: "2022-04-05T11:55:37.895Z"
-updatedAt: "2022-12-20T10:39:14.661Z"
+sidebar_label: Reference
 ---
 
 Note the following information when building your application using Codat's Oracle NetSuite integration.
@@ -126,6 +125,10 @@ When pushing Bill payments to Oracle NetSuite:
 - The supported use cases are paying off a bill with cash and applying a bill credit note to a bill.
 - Applying NetSuite Vendor Prepayments to open bills from vendors is not supported.
 
+## Customers
+
+Customers are mapped from _CustomerName_ in _CustomerID_ from Oracle NetSuite.
+
 ## Direct costs and direct incomes
 
 :::note Type not supported
@@ -137,7 +140,7 @@ You can push Direct costs to NetSuite as either [Checks](https://www.netsuite.co
 
 You can push direct incomes to NetSuite as either [Cash Sales](https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2021_2/script/record/cashsale.html) or [Cash Refunds](https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2021_2/script/record/cashrefund.html). Pushing Customer Deposits is not supported.
 
-When pulling Direct incomes, the default `-Not Taxable-` tax group and tax code are ignored. You can access this information by pulling the [Tax Rates](/data-model/accounting/-taxrates) data type.
+When pulling Direct incomes, the default `-Not Taxable-` tax group and tax code are ignored. You can access this information by pulling the [Tax Rates](/accounting-api#/schemas/TaxRates) data type.
 
 ## Invoices
 
@@ -153,10 +156,6 @@ When pushing Journal entries, Codat first creates a default location in NetSuite
 
 For accounts with _Multi-Book Accounting_ enabled, Codat does not support pushing journal entries to a specific NetSuite journal.
 :::
-
-## Payments
-
-When pushing Payments to Oracle NetSuite, Codat does not support the ability to [refund a credit note](/accounting-api#/schemas/Payment).
 
 ## Purchase orders
 
@@ -218,32 +217,9 @@ The following tables highlight selected fields that are not available in data pu
 
 ### Unavailable Codat fields
 
-
-{
-"data": {
-"h-0": "Oracle NetSuite record and field",
-"h-1": "Codat data type",
-"h-2": "Status",
-"0-0": "`VendorCredit.customForm`,  
-`VendorCredit.postingPeriod`",
-"0-1": "[Bill credit notes](/data-model/accounting/-billcreditnotes)",
-"0-2": "Not represented in Codat's accounting data model.",
-"1-0": "`Invoice.customForm`, `Invoice.postingPeriod`",
-"1-1": "[Invoices](/data-model/accounting/-invoices)",
-"1-2": "Not represented in Codat's accounting data model.",
-"2-0": "`Vendor.subsidiary`",
-"2-1": "[Suppliers](/data-model/accounting/-suppliers)",
-"2-2": "The Suppliers data type does not show whether or not a supplier company is a subsidiary.",
-"3-0": "`Vendor.workCalendar`",
-"3-1": "[Suppliers](/data-model/accounting/-suppliers)",
-"3-2": "Not represented in Codat's accounting data model."
-},
-"cols": 3,
-"rows": 4,
-"align": [
-"left",
-"left",
-"left"
-]
-}
-
+|Oracle NetSuite record and field|Codat data type|Status|
+|----|----|----|
+|`VendorCredit.customForm`,  `VendorCredit.postingPeriod`|[Bill credit notes](/accounting-api#/schemas/billcreditnotes)|Not represented in Codat's accounting data model.|
+|`Invoice.customForm`, `Invoice.postingPeriod`|[Invoices](/accounting-api#/schemas/invoices)|Not represented in Codat's accounting data model.|
+|`Vendor.subsidiary`|[Suppliers](/accounting-api#/schemas/Suppliers)|The Suppliers data type does not show whether or not a supplier company is a subsidiary.|
+|`Vendor.workCalendar`|[Suppliers](/accounting-api#/schemas/Suppliers)|Not represented in Codat's accounting data model.|

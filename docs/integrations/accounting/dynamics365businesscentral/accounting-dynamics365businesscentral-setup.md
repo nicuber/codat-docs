@@ -2,10 +2,9 @@
 title: "Set up the Dynamics 365 Business Central integration"
 slug: "accounting-dynamics365businesscentral-setup"
 description: "Explore our API integration with Dynamics 365 Business Central."
+sidebar_label: Setup
 metadata:
   description: "Access data from customers using Dynamics 365 Business Central for their accounting."
-createdAt: "2020-08-03T10:24:23.098Z"
-updatedAt: "2023-01-10T17:32:19.524Z"
 ---
 
 Before you can access data from customers who use Dynamics 365 Business Central, you need to set up the integration in the Codat Portal. You'll need to:
@@ -16,14 +15,20 @@ Before you can access data from customers who use Dynamics 365 Business Central,
 - Add your secure keys to the Codat Portal
 - Enable the Dynamics 365 Business Central integration in the Codat Portal
 
-We recommend you [test your integration](/test-your-dynamics-365-business-central-integration) using a trial Business Central account before production use.
+We recommend you [test your integration](/integrations/accounting/dynamics365businesscentral/test-your-dynamics-365-business-central-integration) using a trial Business Central account before production use.
 
 :::caution The Dynamics 365 Business Central extension must be installed
 
 During the SMB linking process, the Dynamics 365 Business Central extension package _must_ be successfully installed to the user's account in order for the integration to function. The extension is published by Codat.
 
-For more information, see [Extension installation process](/accounting-dynamics365businesscentral-setup#extension-installation-process) below.
+For more information, see [Extension installation process](/integrations/accounting/dynamics365businesscentral/accounting-dynamics365businesscentral-setup#extension-installation-process) below.
 :::
+
+## Prerequisites
+
+A Dynamics 365 Business Central license is required to use our integration. At a minimum, you'll need a Dynamics 365 Business Central Essentials license. <p>For more information, see the Business Central <a href="https://dynamics.microsoft.com/en-us/business-central/pricing/" taret="_blank">pricing page</a> for your region.</p>
+
+We also assume that your organization already has its Microsoft account configured, and the domain name in your account email has been [DNS-verified](https://learn.microsoft.com/en-us/azure/active-directory/enterprise-users/domains-admin-takeover#internal-admin-takeover). If you are creating an account for the very first time, you may need to [create a tenant for your organization](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization) and [verify the domain](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain). 
 
 ## Register your application
 
@@ -35,11 +40,11 @@ Register your Business Central application on the Microsoft Azure portal.
 
    - To gain access to any Azure configuration that your company has already set up—for example, for user authentication—enter your company email when you sign up.
 
-   - If your organization is using Azure Active Directory (Azure AD) to control access to Dynamics 365 Business Central, ask your Azure AD administrator to add your account to the correct group.
+   - If your organization is using Microsoft Entra ID to control access to Dynamics 365 Business Central, ask your Azure administrator to add your account to the correct group.
      :::caution Unable to create account
      > Contact your Business Central administrator if you can't create a new Business Central account. They might have disabled this feature.
 
-2. After you've signed in, select **Azure Active Directory** on the home page or left menu.
+2. After you've signed in, select **Microsoft Entra ID** on the home page or left menu.
 
    Details of the <a className="external" href="https://docs.microsoft.com/en-us/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings#tenants" target="_blank">tenant</a> that your account is connected to are displayed.
 
@@ -55,9 +60,9 @@ Register your Business Central application on the Microsoft Azure portal.
 
    - **Name**: Enter a short name for your application. Your customers will see this name when they authorize your connection to their accounting system.
 
-   - **Supported account types**: Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**. This allows Codat to access data in Dynamics 365 Business Central.
+   - **Supported account types**: Select **Accounts in any organizational directory (Any Microsoft Entra ID directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**. This allows Codat to access data in Dynamics 365 Business Central.
 
-   - **Redirect URI**: Select **Web**, then enter the following URL: `<https://dynamics365businesscentral.codat.io/oauth/callback`>
+   - **Redirect URI**: Select **Web**, then enter the following URL: `https://dynamics365businesscentral.codat.io/oauth/callback`
 
 6. Select **Register**.
 

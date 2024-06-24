@@ -1,11 +1,10 @@
 ---
 title: "Test PrestaShop"
-description: "Test our PrestaShop integration by pulling sample data to a test Company"
-createdAt: "2021-09-17T00:16:28.634Z"
-updatedAt: "2022-10-20T08:56:09.678Z"
+description: "Test our PrestaShop integration by pulling sample data to a test company"
+sidebar_label: Testing
 ---
 
-When you've [set up PrestaShop](/set-up-prestashop-in-production), you're ready to test the authorization process for your integration. You'll need to:
+When you've [set up PrestaShop](/integrations/commerce/prestashop/set-up-prestashop-in-production), you're ready to test the authorization process for your integration. You'll need to:
 
 - Generate a Link URL to connect your test company to your PrestaShop sandbox.
 - Retrieve commerce data.
@@ -28,10 +27,10 @@ Before you start to test PrestaShop, make sure that you have:
     >
       Official Getting Started Guide
     </a>
-- Set up [PrestaShop](/set-up-prestashop-in-production).
-- Updated your [sync settings](/commerce-sync-settings) to enable commerce data types.
+- Set up [PrestaShop](/integrations/commerce/prestashop/set-up-prestashop-in-production).
+- Updated your [sync settings](/integrations/commerce/commerce-sync-settings) to enable commerce data types.
 
-## Set up a test company in the Codat Portal and connect your test Company to a test account in PrestaShop
+## Set up a test company in the Codat Portal and connect your test company to a test account in PrestaShop
 
 1. Go to the <a href="https://portal-uat.codat.io/" target="_blank">Codat Portal</a> and sign in.
 2. Go to **Companies**.
@@ -48,5 +47,5 @@ To make sure that commerce data has been pulled successfully into the Codat Port
 
 1. Go to the Codat Portal where you've enabled your integration.
 2. In the navigation bar, select **Companies**, and then select the test company that you created.
-3. Select **Commerce API** to see data for all Commerce data types.
+3. Select **Data > Commerce** to see data for all Commerce data types.
 4. If no data is displayed, click **Refresh data**. You can also view **Pull history** to check the status of previous data syncs.

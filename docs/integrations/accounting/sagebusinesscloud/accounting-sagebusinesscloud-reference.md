@@ -1,15 +1,14 @@
 ---
 title: "Sage Business Cloud Accounting integration reference"
 description: "Things to know when synchronizing data with Sage Business Cloud Accounting."
-createdAt: "2022-07-27T14:58:23.404Z"
-updatedAt: "2022-10-17T16:21:25.785Z"
+sidebar_label: Reference
 ---
 
 Note the following information when building your application using Codat's Sage Business Cloud Accounting integration.
 
 ## Transfers
 
-Transfers are mapped from <a className="external" href="https://help.accounting.sage.com/en-ie/accounting/banking/extra-transfer-funds-between-bank-accounts.html?tocpath=Banking%20and%20bank%20feeds%7CTransfers%7C_____1#Recordabanktransfer" target="_blank">Bank Transfers</a> and <a  class="external" href="https://help.accounting.sage.com/en-ie/accounting/banking/extra-transfer-funds-between-bank-accounts.html?tocpath=Banking%20and%20bank%20feeds%7CTransfers%7C_____1#Recordabankdeposit" target="_blank">Bank Deposits</a> in Sage BC.
+Transfers are mapped from <a className="external" href="https://ie-kb.sage.com/portal/app/portlets/results/viewsolution.jsp?solutionid=222001000100784" target="_blank">Bank Transfers</a> and <a  class="external" href="https://ie-kb.sage.com/portal/app/portlets/results/viewsolution.jsp?solutionid=222001000100784" target="_blank">Bank Deposits</a> in Sage BC.
 
 When pushing Transfers to Sage BC, the type of business object created depends on the bank accounts that are specified in the Transfer.
 

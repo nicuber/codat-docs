@@ -1,13 +1,12 @@
 ---
 title: "Test your Clover integration"
-description: "Test our Clover integration by pulling sandbox data to a test Company"
-createdAt: "2022-01-26T13:36:34.347Z"
-updatedAt: "2022-12-16T16:48:06.127Z"
+description: "Test our Clover integration by pulling sandbox data to a test company"
+sidebar_label: Testing
 ---
 
 Codat recommends that you test your integration before sending link URLs to customers.
 
-When you've [set up your Clover integration](/set-up-your-clover-integration), you're ready to test the authorization process for your integration. You'll need to:
+When you've [set up your Clover integration](/integrations/commerce/clover/set-up-your-clover-integration), you're ready to test the authorization process for your integration. You'll need to:
 
 - Set up a test company in the [Codat Portal](https://app.codat.io).
 - Generate a Link URL to connect your test company to your Clover app.

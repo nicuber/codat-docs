@@ -1,8 +1,7 @@
 ---
 title: "Uninstall the Sage 50 connector"
 slug: "uninstalling-the-sage-50-connector"
-createdAt: "2019-05-08T18:49:50.691Z"
-updatedAt: "2022-11-21T11:29:03.214Z"
+sidebar_label: Uninstall the connector
 ---
 
 If a user wants to stop synchronizing their data with Sage 50, they can uninstall the Sage 50 connector from their computer.
@@ -24,7 +23,7 @@ Next, the user is asked to confirm that they want to uninstall the Sage 50 conne
 
 ## Uninstallation if the connector is closed before the first link
 
-The Sage 50 connector will be uninstalled if the user closes the connector before they've completed all the link flow steps (see [Set up the Sage 50 connector](/installing-the-sage-50-connector)).
+The Sage 50 connector will be uninstalled if the user closes the connector before they've completed all the link flow steps (see [Set up the Sage 50 connector](/integrations/accounting/sage50/installing-the-sage-50-connector).
 
 When the close icon is clicked, the connector is uninstalled, and the Codat company that was going to be linked will become _PendingAuth_.
 

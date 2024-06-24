@@ -1,136 +1,91 @@
 ---
-title: "Overview"
-description: "Explore how your customers can authorize access to their data"
-createdAt: "2022-05-11T12:25:17.094Z"
-updatedAt: "2022-11-23T13:57:58.076Z"
+title: "Authorization flow"
+description: "Get access to your SMB customers' data with Link SDK"
+banner_image: "/img/banners/link.png"
 ---
 
-![Conceptual drawing of a lock and key](/img/old/b80d96c-19B0071C-0CCD-4423-8903-A979A32DD225.jpeg)
+Authorization is a key part of any solution built with Codat. Each of your SMB customers must authorize access to their data before you can use that data. A frictionless and reassuring auth flow is essential for receiving the authorization from your SMB customers.
 
-Authorization is a key part of any Codat solution - every Company must authorize access to their data before you can pull that data. A frictionless and reassuring auth flow is essential for accessing your SMB customers' data.
+To achieve this, use our [Link SDK component](/auth-flow/authorize-embedded-link) and embed our Link auth flow in your application. 
 
-## Building your auth flow
+![](/img/auth-flow/embedded-link-selection.png)
 
-There are three ways you can enable your customers to connect their financial accounts:
+## What is Link?
 
-<ul className="card-container col-3">
+Link is our pre-built white-label authorization journey, designed using our extensive build experience and authorization best practices to maximize conversion. 
+
+Embed this best-in-class auth flow into your user journey with our [Link SDK component](/auth-flow/authorize-embedded-link) and enjoy an average **auth flow completion rate of 89%**.
+
+With our [rich examples](/auth-flow/authorize-embedded-link#get-started) and an <a href="https://links.codat.io/client/873ff19e-6fe0-47b0-a4e1-e19f344c78f6?user=8ee6c557-949c-40a8-b31d-e1fa02ef7fbc" target="_blank">interactive demo</a>, we have made it easy for you to get started. You can have the flow up and running in your front-end code with just a few lines of code.
+
+### Features
+
+* **Intuitive UI** based on our expertise and learned best practices ensures a high-converting auth flow
+* **Authentication** in line with OAuth 2.0 standards
+* **Customizable UI** that reflects your company branding
+* **React and non-React** JavaScript compatible pre-built component for fast implementation
+* **Dynamic imports** mean your auth flow will never fall behind our API
+
+:::tip Connection Management SDK
+
+Enhance the auth flow functionality and give your customers the ability to manage the access permissions by using our [Connection Management SDK](/auth-flow/optimize/connection-management) in your front-end code. 
+
+:::
+
+### Benefits
+
+<ul className="card-container col-1">
   <li className="card">
-    <p>No-code</p>
     <div class="header">
       <img
-        src="https://www.codat.io/wp-content/themes/class/dist/images/copy-feature-bullet.svg"
+        src="/img/wp-icons/copy-feature-bullet.svg"
         class="mini-icon"
       />
-      <h3>Hosted Link</h3>
+      <h3>Transparency</h3>
     </div>
     <p>
-      Start capturing data today with our simple, pre-built,
-      conversion-optimized, and customizable authorization flow.
-    </p>
-    <p>
-      <a href="/authorize-hosted-link">
-        Read more...
-      </a>
-      .
+      Link ensures customers have a clear understanding of what exactly is being shared, how the data will be used, and the value they will receive by sharing the data.
     </p>
   </li>
 
   <li className="card">
-    <p>Low-code</p>
     <div class="header">
       <img
-        src="https://www.codat.io/wp-content/themes/class/dist/images/copy-feature-bullet.svg"
+        src="/img/wp-icons/copy-feature-bullet.svg"
         class="mini-icon"
       />
-      <h3>Embedded Link</h3>
+      <h3>Consent</h3>
     </div>
     <p>
-      Maximise conversion and authorize from within your app in 10 lines of code
-      with our auth flow SDK.
-    </p>
-    <p>
-      <a href="/authorize-embedded-link">
-        Read more...
-      </a>
-      .
+      Link provides visibility of the data requiring consent to access, developing enough confidence and trust to authorize consented access to their data.
     </p>
   </li>
 
   <li className="card">
-    <p>More code</p>
     <div class="header">
       <img
-        src="https://www.codat.io/wp-content/themes/class/dist/images/copy-feature-bullet.svg"
+        src="/img/wp-icons/copy-feature-bullet.svg"
         class="mini-icon"
       />
-      <h3>Link API</h3>
+      <h3>Control</h3>
     </div>
-    <p>Leverage our API for a fully customized bespoke user journey.</p>
     <p>
-      <a href="/build-your-own-authorization-journey">
-        Read more...
-      </a>
-      .
+      Codat gives you control of the auth flow so you can serve your use case, provide an experience aligned with your brand, and give your customers an intuitive user experience.
     </p>
   </li>
 </ul>
 
-## What is Link?
+## Supported products and integrations
 
-Link is a pre-built, conversion-optimized, and white-labelled authorization journey. Your customers can connect their financial accounts in minutes using Link. <a href="https://links.codat.io/client/873ff19e-6fe0-47b0-a4e1-e19f344c78f6?user=8ee6c557-949c-40a8-b31d-e1fa02ef7fbc" target="_blank">See a demo in action</a>.
+Link is compatible with our entire [product range](/using-the-api/overview#apis) except [Sync for Commerce](/commerce/overview). To set up your Sync for Commerce authorization flow, follow the instructions in our [dedicated documentation](/commerce/overview).
 
-1. For best results, you can fully embed Link in your experience and [use our Embedded Link component](/authorize-embedded-link) in your front-end code.
+Browser and mobile compatibility of Link varies for different integrations:
 
-2. If you're looking to get up and running as quick as possible, use our [Hosted Link authorization flow](/authorize-hosted-link). You can use it out of the box or integrate this into your existing app.
+  - Some integrations are **desktop-only**, e.g. [Sage 50](/integrations/accounting/sage50/accounting-sage50), [QuickBooks Desktop](/integrations/accounting/quickbooksdesktop/accounting-quickbooksdesktop).
+  - Others require **downloading a desktop package**, e.g. [Oracle NetSuite](/integrations/accounting/netsuite/accounting-netsuite), [Microsoft Dynamics 365 Business Central](/integrations/accounting/dynamics365businesscentral/accounting-dynamics365businesscentral).
+  - Other integrations require switching to complex flows on **non mobile-optimized websites** due to the complexity of the third-party platform, e.g. [Sage 200cloud](/integrations/accounting/sage200/accounting-sage200), [Sage Intacct](/integrations/accounting/sage-intacct/accounting-sage-intacct).
 
-### Link's values
-
-We built Link with these values in mind: Transparency, Consent, and Control.
-
-:::tip Transparency
-
-The data sharing flow should be **transparent** when explaining to your business customer: What exactly is being shared, how the data will be used, the value they will receive by sharing the data.
-
-Link ensures customers have a clear understanding of:
-
-- The value exchange on the benefits of providing data access
-- What will happen with the shared data and how it is secured
-- The data that has been shared
-
-:::
-
-:::tip Consent
-
-After familiarizing themselves with the conditions of sharing their data, your customers should have enough confidence and trust to authorize **consented** access to their data.
-
-Link provides:
-
-- Visibility of the data requiring consent to access,
-- A way for the user to authorize consent.
-
-:::
-
-:::tip Control
-
-You should have enough **control** over the authorization flow to offer your customer an experience seamlessly aligned with your brand’s values and aesthetics.
-
-Codat gives you control of Link, ensuring that it meets your use case and provides a focused and relevant flow which your customers understand.
-:::
-
-## Building your own
-
-We suggest using Link for best results, which can be [embedded within your app](/authorize-embedded-link). However, where you need full control of the flow, you can use our API to [build your own authorization journey](/build-your-own-authorization-journey).
-
-## Pitfalls
-
-:::note Device compatibility
-
-Whether you build your own or use Link, browser and mobile compatibility varies for different integrations:
-
-- Some integrations are **desktop-only** e.g. [Sage 50](/accounting-sage50), [QuickBooks Desktop](/accounting-quickbooksdesktop).
-- Some integrations require **downloading a desktop package** e.g. [Oracle NetSuite](/accounting-netsuite), [Microsoft Dynamics 365 Business Central](/accounting-dynamics365businesscentral).
-- Some integrations require switching to complex flows on **non mobile-optimized websites** due to the complexity of the third-party platform e.g. [Sage 200cloud](/accounting-sage200), [Sage Intacct](/accounting-sage-intacct).
-
-:::caution Link compatibility with Codat Products
-
-Link is compatible with the whole product range of Codat except for [Sync for Commerce](/sync-commerce/overview) which is currently not supported. To set up your Sync for Commerce authorization flow, follow the instructions in our [Sync for Commerce documentation](/sync-commerce/overview).
+---
+## Read next
+- [Get started](/auth-flow/authorize-embedded-link) with the Link SDK to embed the auth journey in your app
+- Use the [Connections SDK](/auth-flow/optimize/connection-management) in your app

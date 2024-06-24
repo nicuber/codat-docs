@@ -1,8 +1,6 @@
 ---
 title: "Platform selection"
 description: "Streamline the platform selection flow to increase conversion"
-createdAt: "2022-06-16T06:35:34.305Z"
-updatedAt: "2022-10-20T15:24:34.963Z"
 ---
 
 The platform selection stage is the pivotal moment where your customers need to easily find the software they use and are ready to connect. Getting this right is critical to give your customers the best chance of connectivity.
@@ -29,7 +27,7 @@ The available integrations should be grouped by category when there are multiple
 
 To establish a sense of familiarity and certainty in users, make sure you show the correct name and logo of integration, as well as the website address that users navigate to when using their software.
 
-We recommend [using the assets provided by Codat](/build-your-own-authorization-journey#step-2-display-a-list-of-integrations-for-your-users-to-select-including-the-integration-name-and-logo) as they meet the requirements of the supported integrations.
+We recommend [using the assets provided by Codat](/auth-flow/build/build-your-own-authorization-journey#step-2-display-a-list-of-integrations-for-your-users-to-select-including-the-integration-name-and-logo) as they meet the requirements of the supported integrations.
 
 :::caution
 
@@ -58,9 +56,9 @@ Ensure there is a way to add multiple connections if your use case will benefit 
 - Show the status of existing connections e.g. showing ‘Connected ✔️' against the connected platform’s name and logo
 - Highlight previously selected platforms that are pending authorization
 
-See [here](/authorize-hosted-link#managing-existing-users-with-pending-connections) for more detail on connections with a `pendingAuth` status and [here](/querying-1#for-companies-whose-status-is-pending-with-data-connection-established) on creating a query to find these companies.
+See [here](/auth-flow/authorize-hosted-link#managing-existing-users-with-pending-connections) for more detail on connections with a `pendingAuth` status and [here](/using-the-api/querying#for-companies-whose-status-is-pending-with-data-connection-established) on creating a query to find these companies.
 
-:::info
+:::info Why use Link?
 
 [Using Codat's Link for authorization](/auth-flow/overview) allows you to:
 
@@ -68,7 +66,14 @@ See [here](/authorize-hosted-link#managing-existing-users-with-pending-connectio
 - Require an action to consent to data sharing
 - Provide various support contact details
 
-To read more about different ways to customize Link, read [Customize your Link](/set-up-link).
+To read more about different ways to customize Link, read [Customize your Link](/auth-flow/customize/customize-link).
 
-You can also [build your own authorization journey](/build-your-own-authorization-journey).
+You can also [build your own authorization journey](/auth-flow/build/build-your-own-authorization-journey).
 :::
+
+
+---
+
+## Read next
+
+- Learn how to [enhance the customer journey when a persistent connection is required](/auth-flow/optimize/connection-management)

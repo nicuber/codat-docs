@@ -1,12 +1,12 @@
 import React from "react";
 import Api from '../../components/global/Api'
 
-const URL = "https://raw.githubusercontent.com/codatio/oas/main/json/Codat-Accounting.json"
+const URL = "/oas/Codat-Sync-Commerce.json"
 
-const AccountingApi = () => {
+const CommerceSyncApi = () => {
   return (
-    <Api url={URL}/>
+    <Api url={URL} title="Sync for Commerce API reference"/>
   );
 }
 
-export default AccountingApi
+export default CommerceSyncApi

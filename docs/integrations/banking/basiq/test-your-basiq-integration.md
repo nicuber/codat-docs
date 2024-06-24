@@ -1,10 +1,9 @@
 ---
 title: "Test your Basiq integration"
-createdAt: "2022-10-27T09:46:46.382Z"
-updatedAt: "2022-11-02T12:12:50.822Z"
+sidebar_label: Testing
 ---
 
-When you've [set up and enabled Basiq](/banking-basiq-setup), you can test your integration with Basiq's test bank "Hooli". You'll need to:
+When you've [set up and enabled Basiq](/integrations/banking/basiq/banking-basiq-setup), you can test your integration with Basiq's test bank "Hooli". You'll need to:
 
 - Set up a test company.
 - Generate a Link URL for your test company
@@ -34,4 +33,4 @@ When you've [set up and enabled Basiq](/banking-basiq-setup), you can test your 
 
 Once you have completed linking to Basiq's test bank, you will be able to view data in the Codat portal.
 
-Click on the company you created in step 4 above, and choose "Banking API" from the left hand menu to explore the data.
+Click on the company you created in step 4 above, and choose "Data > Banking" from the left hand menu to explore the data.

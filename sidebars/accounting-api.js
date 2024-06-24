@@ -5,20 +5,47 @@ module.exports = [
     label: "All Docs",
     className: "back",
   },
-  "accounting-api/overview",
   {
-    type: "link",
-    label: "Accounting data model",
-    href: "/data-model/accounting/",
+    type: "doc",
+    label: "Accounting API",
+    id: "accounting-api/overview",
+    className: "header",
   },
   {
-    type: "link",
+    type: "category",
+    label: "Guides",
+    collapsed: true,
+    items: [
+      {
+        type: "doc",
+        label: "Loan qualification",
+        id: "lending/guides/loan-qualification/introduction",
+      },
+      {
+        type: "doc",
+        label: "Invoice financing",
+        id: "lending/guides/invoice-finance/introduction",
+      },
+      {
+        type: "doc",
+        label: "Bill pay",
+        id: "payables/guides/bill-pay/introduction",
+      },
+    ],
+  },
+  {
+    type: "doc",
+    label: "Accounting data model",
+    id: "accounting-api/accounting-data-types",
+  },
+  {
+    type: "doc",
     label: "Accounting integrations",
-    href: "/integrations/accounting/overview",
+    id: "integrations/accounting/overview",
   },
   {
     type: "link",
     href: "/accounting-api",
-    label: "API reference",
+    label: "Accounting API reference",
   },
 ];

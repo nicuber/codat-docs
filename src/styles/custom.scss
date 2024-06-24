@@ -7,21 +7,34 @@
 
 /* You can override the default Infima variables here. */
 
-@use "./components/admonition";
+@use "./components/admonitions";
+@use "./components/article";
+@use "./components/blockquotes";
 @use "./components/back-to-top-button";
 @use "./components/blog";
+@use "./components/callout";
 @use "./components/cards";
+@use "./components/checkbox";
 @use "./components/code";
+@use "./components/cookie";
+@use "./components/diff-checker";
 @use "./components/doc-item";
 @use "./components/doc-page";
 @use "./components/doc-sidebar";
 @use "./components/edit-this-page";
+@use "./components/google-sheets";
+@use "./components/icons";
 @use "./components/images";
+@use "./components/input";
+@use "./components/labels";
 @use "./components/lists";
 @use "./components/markdown";
+@use "./components/mermaid";
 @use "./components/navbar";
 @use "./components/navbar-sidebar";
 @use "./components/pagination";
+@use "./components/prototype";
+@use "./components/read-next";
 @use "./components/search";
 @use "./components/scrollbar";
 @use "./components/table";
@@ -30,27 +43,39 @@
 @use "./components/toc";
 @use "./components/video";
 
+@import '~@fortawesome/fontawesome-svg-core/styles.css';
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+/* 600 weight */
 
 :root {
   --color-black: #0d0d0d;
+
   --color-interface-core: #556680;
   --color-interface-dark: #556680;
   --color-interface-5: #f7fafd;
   --color-interface-10: #f0f4fa;
   --color-interface-20: #e4ecf6;
+  --color-interface-40: #BBCADD;
+  --color-interface-60: #93A5BD;
+  --color-interface-80: #7586A3;
 
   --color-primary: var(--color-interface-core);
 
   --color-warning-10: #fff7eb;
   --color-warning-20: #ffeed6;
   --color-warning-dark: #754300;
+
   --color-error-10: #fdebee;
   --color-error-20: #fcd6dd;
   --color-error-dark: #750024;
+
   --color-neutral-10: #ecf5fd;
   --color-neutral-20: #daebfc;
   --color-neutral-dark: #004194;
+
   --color-positive-10: #eaf6ed;
   --color-positive-20: #eaf6ed;
   --color-positive-dark: #004c00;
@@ -60,12 +85,24 @@
 
   --ifm-color-link: var(--color-codat-primary);
   --ifm-background-color: var(--token-primary-bg-c);
+  --ifm-pre-core: #2b3442;
 
   // ------------ Fonts
-  --ifm-font-family-base: "Poppins", -apple-system, BlinkMacSystemFont, Inter,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI emoji";
-  --ifm-font-family-monospace: "SFMono-Regular", "Roboto Mono", Consolas,
-    "Liberation Mono", Menlo, Courier, monospace;
+
+  --sans-serif: "Poppins", -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI emoji";
+  --serif: "Source Serif Pro", Iowan Old Style, Apple Garamond, Palatino Linotype, Times New Roman, "Droid Serif", Times, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --mono: "SFMono-Regular", "Roboto Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  
+  // Print best practice
+  //--ifm-font-family-base: var(--serif);
+  //--ifm-heading-font-family: var(--sans-serif);
+  //--ifm-font-family-monospace: var(--mono);
+
+
+  --ifm-font-family-base: var(--sans-serif);
+  // --ifm-heading-font-family: var(--serif);
+  --ifm-font-family-monospace: var(--mono);
+
   --ifm-font-color-base: var(--color-black);
 
   --font-weight: 400;
@@ -82,12 +119,19 @@
   --ifm-navbar-link-hover-color: initial;
   --ifm-navbar-padding-vertical: 0;
   --ifm-navbar-item-padding-vertical: 0;
+
+  --padding-page-border: 2em;
+
+  @media (max-width: 800px) {
+    --padding-page-border: 1em;  
+  }
 }
 
 html[data-theme="light"] {
   --token-primary-bg-c: #ffffff;
   --token-secondary-bg-c: var(--color-interface-5);
   --token-secondary-bg-c-alt: var(--color-interface-10);
+  --token-secondary-bg-c-alt-dark: var(--color-interface-20);
 
   --color-primary: var(--color-codat-primary);
   --ifm-color-primary: var(--color-codat-primary);
@@ -117,6 +161,7 @@ html[data-theme="dark"] {
   --token-primary-bg-c: #03060b;
   --token-secondary-bg-c: #13171c;
   --token-secondary-bg-c-alt: #252c35;
+  --token-secondary-bg-c-alt-dark: #303842;
 
   --ifm-link-color: var(--c-blue-70);
   --ifm-link-hover-color: rgba(77, 141, 255, 0.8);
@@ -163,6 +208,7 @@ h2,
 h3,
 h4 {
   font-weight: 500;
+  text-wrap: balance;
 }
 
 a {
@@ -256,4 +302,16 @@ hr {
 
 .cordova-ee-card p {
   margin: 1rem 0 0;
+}
+
+
+// Zendesk
+
+// #launcher {
+//   right: 3em;
+// }
+
+.theme-back-to-top-button {
+  bottom: 13px !important;
+  right: 10.5em !important;
 }

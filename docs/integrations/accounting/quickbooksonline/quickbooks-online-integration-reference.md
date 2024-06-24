@@ -1,8 +1,7 @@
 ---
 title: "QuickBooks Online integration reference"
-description: "Things to know when synchronizing data with QuickBooks Online."
-createdAt: "2022-05-20T15:09:22.997Z"
-updatedAt: "2022-12-20T09:45:44.719Z"
+description: "Things to know when synchronizing data with QuickBooks Online"
+sidebar_label: Reference
 ---
 
 Note the following information when building your application using our QuickBooks Online integration.
@@ -12,6 +11,10 @@ Note the following information when building your application using our QuickBoo
 Direct Incomes includes Sales Receipts and Refund Receipts from QuickBooks Online.
 
 When pushing Direct Incomes to QuickBooks Online, you must enter Sales Receipts as positive amounts and Refund Receipts as negative amounts.
+
+## Direct Costs
+
+When creating direct costs in QuickBooks Online for GB, FR, IE, CA, and AU locales, records with a tax amount specified on the line item will be classified as `Tax Exclusive`. Specifically for CA, if there are no tax amounts specified on any line items or all line items have a tax amount of zero, the expense will be pushed as `Out Of Scope Of Tax`.
 
 ## Invoice Line Items
 
@@ -39,3 +42,22 @@ The following table highlights selected fields that are not available in data pu
 
 _Item bundles_ in QuickBooks Online are supported for Direct Incomes, Invoices, and Credit Notes only.
 :::
+
+## QBO app hosting
+
+To access your production credentials in QuickBooks Online, you need to confirm where your app is hosted. Since Codat interacts directly with QBO, you need to include our IPs and hosting locations as well as your own (if applicable).
+
+:::note Dynamic IPs
+Our IPs are dynamic. The set of IPs included below is correct as of Q1 2022.
+:::
+
+**Country**: United Kingdom of Great Britain and Northern Ireland
+
+| IP address type  | Start        | End            |
+|------------------|--------------|----------------|
+| IP address range | 20.77.152.0  | 20.77.153.255  |
+| Single IP        | 51.104.28.73 |                |
+| IP address range | 51.132.44.0  | 51.132.47.255  |
+| IP address range | 51.132.155.0 | 51.132.159.255 |
+
+

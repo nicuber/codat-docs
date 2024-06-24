@@ -1,8 +1,7 @@
 ---
 title: "Sage Intacct integration reference"
 description: "Things to know when synchronizing data with Sage Intacct."
-createdAt: "2022-05-04T10:48:36.978Z"
-updatedAt: "2022-10-17T16:21:50.598Z"
+sidebar_label: Reference
 ---
 
 Note the following information when building your application using Codat's Sage Intacct integration.
@@ -140,34 +139,14 @@ The following table highlights selected fields that are not available in data pu
 
 ### Unavailable provider fields
 
-
-{
-"data": {
-"h-0": "Codat data type and field",
-"h-1": "Status",
-"0-0": "`creditNotes.discountPercentage`",
-"0-1": "Not available in the provider's API."
-},
-"cols": 2,
-"rows": 1
-}
+|Codat data type and field|Status|
+|----|----|
+|`creditNotes.discountPercentage`|Not available in the provider's API.|
 
 
 ### Unavailable Codat fields
 
-
-{
-"data": {
-"h-0": "Sage Intacct record and field",
-"h-1": "Codat data type",
-"h-2": "Status",
-"0-0": "`otherreceipt.paymentmethod` (Required)",
-"0-1": "[Direct Incomes](/data-model/accounting/-directincomes)",
-"0-2": "[Payment methods](/data-model/accounting/-paymentmethods) is not supported for the direct incomes data type.
-
-When pushing direct incomes to Sage Intacct, the `paymentmethod` is always set to `Cash`."
-},
-"cols": 3,
-"rows": 1
-}
+|Sage Intacct record and field|Codat data type|Status|
+|----|----|----|
+|`otherreceipt.paymentmethod` (Required)|[Direct Incomes](/accounting-api#/directincomes)|[Payment methods](/accounting-api#/paymentmethods) is not supported for the direct incomes data type. When pushing direct incomes to Sage Intacct, the `paymentmethod` is always set to `Cash`.|
 

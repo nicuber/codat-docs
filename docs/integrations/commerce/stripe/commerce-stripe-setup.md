@@ -1,8 +1,7 @@
 ---
 title: "Set up the Stripe integration"
 description: "Explore our API integration with Stripe"
-createdAt: "2021-02-04T11:21:44.725Z"
-updatedAt: "2023-01-06T16:46:47.528Z"
+sidebar_label: Setup
 ---
 
 Set up the Stripe integration to access commerce data from customers who use <a className="external" href="https://stripe.com/" target="_blank">Stripe</a> to accept payments.
@@ -11,7 +10,7 @@ Our integration uses <a className="external" href="https://stripe.com/docs/conne
 
 :::note Test and live integrations
 
-This page explains how to set up both the Stripe Test and the Stripe integrations (see [Available integrations](/commerce-stripe#available-integrations) for more details).
+This page explains how to set up both the Stripe Test and the Stripe integrations (see [Available integrations](/integrations/commerce/stripe/commerce-stripe#available-integrations) for more details).
 :::
 
 To set up the Stripe integration, you'll need to:
@@ -25,7 +24,7 @@ To set up the Stripe integration, you'll need to:
 
 ## Register as a Stripe Connect platform
 
-Complete your Connect Platform profile to register for Stripe Connect. When your profile is complete and your business details are approved, you can access your live platform credentials. To access your test credentials, you only need to complete steps 1–6.
+Complete your Connect Platform profile to register for Stripe Connect. When your profile is complete and your business details are approved, you can access your live platform credentials. To access your test credentials, you only need to complete steps 1–5.
 
 1. Visit <a className="external" href="https://stripe.com/" target="_blank">Stripe</a> and sign in to your developer account.
 
@@ -33,21 +32,19 @@ Complete your Connect Platform profile to register for Stripe Connect. When your
 
 3. Click **Get started with Connect**.
 
-4. Select **Platform or marketplace** in the pop-up window, then click **Continue**.
+4. Select **Complete your platform profile**, then click **Start**.
 
-   The **Get started with Connect** page is displayed.
+5. Answer the multiple-choice questions about your business and then submit your responses.
 
-5. Under **Complete your platform profile**, click **Start**.
+   :::caution Do not create a connected account
+   After submitting your details, do **not** create a connected account either manually or through the Stripe API. Connected Standard accounts are created automatically as part of the Link flow.
+   :::
 
-6. Answer the multiple-choice questions about your business and then submit your responses.
+6. Return to the **Get started with Connect** page.
 
-   Stripe recommends the optimal type of connected account for your business: either _Standard_, _Express_, or _Custom_. **Do not create a connected account, either manually or through the Stripe API.** Connected Standard accounts representing your SMB customers will be created automatically as part of the Link flow.
+7. Under **Add business details to activate your account**, click **Start now**.
 
-7. Return to the **Get started with Connect** page.
-
-8. Under **Add business details to activate your account**, click **Start now**.
-
-9. Complete the requested information to activate your account. All responses are reviewed by Stripe.
+8. Complete the requested information to activate your account. All responses are reviewed by Stripe.
 
 :::note
 
@@ -66,9 +63,9 @@ Configure Stripe Connect to connect to our Stripe integration, and access your S
 
 ### Prerequisites
 
-To access your live credentials in Stripe, you must have [added your business details](/commerce-stripe-setup#register-as-a-stripe-connect-platform) as described in the preceding task.
+To access your live credentials in Stripe, you must have [added your business details](/integrations/commerce/stripe/commerce-stripe-setup#register-as-a-stripe-connect-platform) as described in the preceding task.
 
-1. Go to the <a className="external" href="https://dashboard.stripe.com/settings/connect" target="_blank">Connect settings</a> page.
+1. Go to the <a href="https://dashboard.stripe.com/settings/connect" target="_blank">Connect settings</a> page.
 
 2. Use the **Test mode** switch at the top right to switch between live mode or test mode.
 
@@ -136,8 +133,8 @@ You can also click **Manage** to view the integration's settings page, and then 
 
 ## Check the commerce sync settings
 
-Syncing of all commerce data types must be enabled before you can pull commerce transactions from Stripe to Codat. Follow the steps in [Commerce sync settings](/commerce-sync-settings); you only need to do this once.
+Syncing of all commerce data types must be enabled before you can pull commerce transactions from Stripe to Codat. Follow the steps in [Commerce sync settings](/integrations/commerce/commerce-sync-settings); you only need to do this once.
 
 ## Test the integration
 
-[Test your Stripe integration](/test-stripe) explains how to use the Stripe Test integration to pull test data into Codat.
+[Test your Stripe integration](/integrations/commerce/stripe/test-stripe) explains how to use the Stripe Test integration to pull test data into Codat.

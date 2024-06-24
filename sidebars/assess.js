@@ -5,60 +5,73 @@ module.exports = [
     label: "All Docs",
     className: "back",
   },
-  //guides
-  "assess/overview",
-  "assess/get-started",
-  //getting started
-  // launch checklist
-
-  //use cases
-  // underwriting
+  {
+    type: "link",
+    label: "Assess",
+    href: "/assess/overview",
+    className: "header",
+  },
   {
     type: "category",
-    label: "Categories",
+    label: "Guides",
     collapsed: true,
     items: [
-      "assess/categories/categories",
-      "assess/categories/api-categorization-of-accounts",
+      "assess/get-started",
+      {
+        type: "link",
+        label: "Loan qualification",
+        href: "/guides/loan-qualification/introduction",
+      },
+      {
+        type: "category",
+        label: "Migration Guides",
+        collapsed: true,
+        items: [
+          "assess/guides/migration-guides/deprecation-account-categories",
+          "assess/guides/migration-guides/deprecation-account-categories-api",
+          "assess/guides/migration-guides/deprecation-account-categories-portal",
+          "assess/guides/migration-guides/deprecation-account-categories-excel",
+        ],
+      }, 
     ],
   },
   {
     type: "category",
-    label: "Reports",
+    label: "Enhanced financials",
     collapsed: true,
     items: [
-      "assess/reports/reporting-structure",
-      {
-        type: "category",
-        label: "Enhanced cash flow",
-        collapsed: true,
-        items: [
-          "assess/reports/enhanced-cash-flow-report/overview",
-          "assess/reports/enhanced-cash-flow-report/transactions",
-        ],
-      },
-      {
-        type: "category",
-        label: "Enhanced financials",
-        collapsed: true,
-        items: [
-          "assess/reports/enhanced-financials/financials",
-          "assess/reports/enhanced-financials/balance-sheet",
-          "assess/reports/enhanced-financials/profit-and-loss",
-        ],
-      },
-      {
-        type: "category",
-        label: "Banking",
-        collapsed: true,
-        items: [
-          "assess/reports/banking/overview",
-          "assess/reports/banking/banking-account-balances",
-          "assess/reports/banking/banking-account-inflows-and-outflows",
-        ],
-      },
-      "assess/reports/audit-report",
-      "assess/reports/excel-reports",
+      "assess/enhanced-financials/overview",
+      "assess/enhanced-financials/categorize-accounts",
+      "assess/enhanced-financials/supported-account-categories",
+      { type: "link", label: "Enhanced profit and loss accounts", href: "/assess-api#/operations/get-accounts-for-enhanced-profit-and-loss" },
+      { type: "link", label: "Enhanced balance sheet accounts", href: "/assess-api#/operations/get-accounts-for-enhanced-balance-sheet" },
+    ],
+  },
+  {
+    type: "category",
+    label: "Enhanced cash flow",
+    collapsed: true,
+    items: [
+      "assess/enhanced-cash-flow/overview",
+      { type: "link", label: "Enhanced cash flow transactions", href: "/assess-api#/operations/get-enhanced-cash-flow-transactions" },
+    ],
+  },
+  {
+    type: "category",
+    label: "Enhanced invoices",
+    collapsed: true,
+    items: [
+      "assess/enhanced-invoices/overview",
+      { type: "link", label: "Enhanced invoices report", href: "/assess-api#/operations/get-enhanced-invoices-report" },
+    ],
+  },
+  {
+    type: "category",
+    label: "Enhanced liabilties",
+    collapsed: true,
+    items: [
+      { type: "link", label: "Enhanced liabilties loan summary", href: "/assess-api#/operations/get-loan-summary" },
+      { type: "link", label: "Enhanced liabilties loan transactions", href: "/assess-api#/operations/list-loan-transactions" },
     ],
   },
   {
@@ -66,26 +79,15 @@ module.exports = [
     label: "Data integrity",
     collapsed: true,
     items: [
-      "assess/data-integrity/data-integrity",
+      "assess/data-integrity/overview",
       "assess/data-integrity/api-data-integrity",
     ],
   },
-
   {
     type: "category",
     label: "Metrics",
     collapsed: true,
     items: [
-      {
-        type: "category",
-        label: "Accounting metrics",
-        collapsed: true,
-        items: [
-          "assess/metrics/accounting/overview",
-          "assess/metrics/accounting/api-financial-metrics",
-          "assess/metrics/accounting/api-marketing-metrics",
-        ],
-      },
       {
         type: "category",
         label: "Commerce metrics",
@@ -108,7 +110,28 @@ module.exports = [
     items: [
       "assess/portal/overview",
       "assess/portal/data-integrity",
-      "assess/portal/categorization-of-accounts",
+      "assess/portal/categorize-accounts"
+    ],
+  },
+  {
+    type: "category",
+    label: "Excel download",
+    collapsed: true,
+    items: [
+      "assess/excel/overview",
+      "assess/excel/assess-report",
+      "assess/excel/audit-report",
+      "assess/excel/enhanced-financials-report",
+      "assess/excel/enhanced-invoices-report",
+      "assess/excel/enhanced-cash-flow-report",
+    ],
+  },
+  {
+    type: "category",
+    label: "Liabilities",
+    collapsed: true,
+    items: [
+      "assess/loans/loan-transactions",
     ],
   },
   'assess/troubleshooting',

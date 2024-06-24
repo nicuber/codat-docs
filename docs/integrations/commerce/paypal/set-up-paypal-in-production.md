@@ -1,21 +1,20 @@
 ---
 title: "Set up the PayPal Integration"
 description: "Explore our API integration with PayPal"
-createdAt: "2021-03-25T22:00:31.772Z"
-updatedAt: "2023-01-06T16:40:43.784Z"
+sidebar_label: Setup
 ---
 
 Before you can access your customers' commerce data from PayPal, you need to set up your integration.
 
 :::caution
 
-Before you begin, read the Provider requirements on the [PayPal](/commerce-paypal) page.
+Before you begin, read the Provider requirements on the [PayPal](/integrations/commerce/paypal/commerce-paypal) page.
 :::
 
 You'll need to:
 
 - Sign in to the [Codat Portal](https://app.codat.io/).
-- Register as a Third Party Provider (TPP) to access PayPal’s X2SA API and request your sandbox credentials. PayPal will require you to provide them with either an eIDAS QWAC or OBWAC (i.e. an open banking certification)
+- Register as a Third Party Provider (TPP) to access PayPal’s X2SA API and request your sandbox credentials. PayPal will require you to provide them with either an eIDAS QWAC or OBWAC (i.e. an Open Banking certification)
 - Add your secure credentials to the Codat Portal and enable your test PayPal integration.
 - Check your sync settings.
 
@@ -49,4 +48,4 @@ You can also click **Manage** to view the integration's settings page, and then 
 
 ## Check your sync settings in the Codat Portal
 
-If this is your first commerce integration, update your [data type settings](/commerce-sync-settings) to enable commerce data types.
+If this is your first commerce integration, update your [data type settings](/integrations/commerce/commerce-sync-settings) to enable commerce data types.

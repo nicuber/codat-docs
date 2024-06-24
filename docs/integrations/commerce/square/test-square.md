@@ -1,8 +1,7 @@
 ---
 title: "Test your Square integration"
-description: "Test our Square integration by pulling sample data to a test Company"
-createdAt: "2020-09-18T08:57:30.712Z"
-updatedAt: "2022-10-20T09:24:21.873Z"
+description: "Test our Square integration by pulling sample data to a test company"
+sidebar_label: Testing
 ---
 
 You can use the Square Sandbox integration to pull test data from Square into Codat.
@@ -15,7 +14,7 @@ You'll need to:
 
 ## Prerequisites
 
-First, [set up your Square integration](/commerce-square-setup).
+First, [set up your Square integration](/integrations/commerce/square/commerce-square-setup).
 
 - In Square Developer, make sure you've enabled **Sandbox** in your app's configuration settings.
 - In Codat, make sure you've configured the **Square Sandbox** integration.
@@ -42,7 +41,7 @@ Test the authorization process that your customers will see when they connect th
 3. Under **Sandbox test accounts**, open the **Default Test Account**, or another test account, to open the Sandbox seller dashboard. Keep this page open in your browser or authorization to the Sandbox account will fail in Link.
 4. In the Codat Portal, click **Companies** in the navigation bar.
 5. Hover over your test company, then click **Link URL**. The **Onboarding** dialog is displayed.
-6. Copy the **Link URL** and paste it into a new browser tab. This loads [Link](/link).
+6. Copy the **Link URL** and paste it into a new browser tab. This loads [Hosted Link](/auth-flow/authorize-hosted-link).
 
 7. Complete the steps in Link; the exact steps shown depend on your Link settings. You'll need to:
 
@@ -68,7 +67,7 @@ In the <a href="https://app.codat.io/" target="_blank">Codat Portal</a>:
 
 3. Optionally, click **Pull history** to check the progress of the initial sync (if configured in your sync settings). You can also click **Refresh data**.
 
-4. Click the **Commerce API** tab.
+4. Click **Data > Commerce** tab.
 
 5. Use the tabs to view test data that was pulled from Square. For example, click **Products** or **Orders**.
 

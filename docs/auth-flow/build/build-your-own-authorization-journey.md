@@ -1,218 +1,174 @@
 ---
 title: "Build your own auth flow"
-sidebar_label: Overview
-slug: "build-your-own-authorization-journey"
-excerpt: "Explore how to create your own journey to connect your customers' financial platforms"
-hidden: false
-createdAt: "2022-06-28T14:27:30.620Z"
-updatedAt: "2022-11-14T17:52:05.345Z"
+description: "Create your own journey to connect your customers' financial platforms"
+unlisted: true
+displayed_sidebar: docs
 ---
 
-Codat provides a series of endpoints that allow you to build the journey for your business customers to connect their financial platforms.
+:::tip Codat recommends Link SDK
 
-## What might a bespoke auth flow look like?
+Instead of building your own solution, use the [Link SDK](/auth-flow/authorize-embedded-link) to fully embed our flexible, white-labeled auth flow in your application. 
 
-Below is a indicative demo of a where Codat might fit in to a digital lending onboarding experience. Copay is a fictional digital lender looking to gather financial data from prospective customers in order to make a credit decision.
+You will benefit from our extensive experience combined with authorization best practices, providing your users with a native feeling of the auth flow and achieving an **89%** conversion rate on average.
 
-<a href="https://codat-dev-link-demo.azurewebsites.net/home" target="_blank">
-  See an indicative demo
-</a> | <a href="https://github.com/codatio/demo-auth-flow" target="_blank">
-  See the code
-</a>
-
-## Building your own auth flow
-
-### 1. Create a Codat company when a user signs up for your app
-
-1. In order to establish a connection to your customer's financial platform(s), you first need to create a Codat company for them. We recommend you create a company at the same time as your customer signs up within your app. That will allow you to track their connection status from day one. To create a company, follow the steps in [Create a Codat company](https://docs.codat.io/docs/managing-companies).
-
-:::caution Use your merchant ID for the company name
-
-We recommend that you populate the name value with the ID that you use for the merchant in **your** internal system so that it’s easier to identify the Codat company that corresponds to your record of the merchant.
 :::
 
-2. From the response to step 1, retain the company ID (hereafter referred to as `companyId`) (see an example below). It is crucial that you retain this value as you will need it for directing your customers to Link and managing their connections.
-3. _(Optional)_ [Set up an alert](doc:set-up-alerts) to monitor the connection status of the newly created company. Read [Set up alerts](doc:set-up-alerts) to learn more.
+If your business scenario and circumstances prevent you from using our Link SDK, you can use the endpoints that allow you to build the journey for your business customers to connect their financial platforms. Next, we will go through the steps and endpoints in detail.
 
-### 2. Display a list of integrations for your users to select, including the integration name and logo
+## Create a Codat company
 
-1. Retrieve a list of all integrations available to connect and display them in your UI:
+First, create a [company](../../terms/company.md) to represent your SMB in Codat. We recommend doing that at the time your SMB user signs up within your app. This way, you can track their connection status from day one. 
 
-```http
-GET /integrations",
-```
+To create a new company, use the [Create company](/platform-api#/operations/create-company) endpoint and provide a name for the company in the request body. If your user has previously authorized with you, use the company you previously created for them. For details on managing and deleting existing companies, review [Manage companies with our API](/using-the-api/managing-companies).
 
-Use a query filter in the following format:
+:::tip Use your customer's ID for the company name
 
-```http
-?query=sourceType=accounting&&enabled=true
-```
-
-In the query above, the `enabled` parameter allows you to filter the integrations based on whether or not they have been enabled via the Codat portal. The `sourceType` parameter allows you to filter the integrations by the data type: `accounting`, `banking` or `commerce`.
-
-Note that you need to URL encode the query:
-
-```http
-      "code": "//Non-encoded query:
-      ?query=sourceType=accounting&&enabled=true
-
-      //Encoded query:
-      ?query=sourceType%3DAccounting%26%26enabled%3Dtrue",
-```
-
-More information about querying can be found in [Querying](doc:querying-1). If you are using Swagger, you don't need to encode the query, it happens automatically.
-
-2. Retrieve branded assets, including logos and buttons, for the selected integrations:
-
-```http
-GET /integrations/{platformKey}/branding",
-```
-
-:::caution Cache branding assets
-To ensure this page is performative for your users, we recommend caching the branding assets information rather than calling the branding endpoint each time a user visits the integration selection page.
+For the company `name` parameter, we recommend you pass the ID that you use for the customer in **your** internal system. This makes it easier to identify the Codat company that corresponds to your record of the customer.
 :::
 
-:::info Use the branded assets provided by Codat
+From the response, retain the company ID (`companyId`), because you will need it for directing your customers to Link and managing their connections.
 
-We recommend using the assets provided by Codat as they meet the requirements of the supported integrations. For example, Intuit integrations (QuickBooks Online and QuickBooks Desktop) require the specific use of QuickBooks branded buttons, including specific hover states.
-:::
+Optionally, you can [set up a webhook](/using-the-api/webhooks/event-types) to monitor the connection status of the newly created company.
 
-### 3. Direct your user to enter their 3rd party credentials to authorize a connection with their selected platform
+## Display a list of integrations
 
-1. Create a data connection for the integration selected by your customer:
+Next, you need to provide your customer with a list of platforms they can provide you access to, including the platform name and logo. For additional guidance on best practices of integration selection, see [Platfrom selection](/auth-flow/optimize/platform-selection). 
+
+#### Retrieve all available integrations
+
+Use the [List integrations](/platform-api#/operations/list-integrations) endpoint to retrieve a list of all integrations available for the customer to connect. 
+
+We recommend using a query to filter this list. For example, use the `enabled` parameter to only return the integrations enabled via the Codat Portal. The `sourceType` parameter allows you to filter integrations by their data type - `accounting`, `banking` or `commerce`. 
+
+You need to encode the query, unless you are using our API reference, where that happens automatically. For more details on querying, see [Querying](/using-the-api/querying).
 
 ```http
+  //Non-encoded query:
+  ?query=sourceType=accounting&&enabled=true
 
-POST /companies/{companyId}/connections
-
-Request body:
-
-"platformKey"",
+  //Encoded query:
+  ?query=sourceType%3DAccounting%26%26enabled%3Dtrue"
 ```
 
-The `platformKey` is the unique key Codat uses instead of financial platform names to remove the dependence on a platform's display name. Platform keys can be found [here](doc:accounting-platform-keys) for accounting and [here](doc:commerce-platform-keys) for commerce, or retrieved from [our API](https://docs.codat.io/reference/listintegrations).
+#### Retrieve branded assets
 
-2. Direct your user to the `linkUrl` found in the nested `dataConnection` object for the specified integration, returned in the response. It will prompt the user to enter their credentials for the 3rd-party platform, authorizing the connection and activating it.
+Call the [Get branding](/platform-api#/operations/get-integrations-branding) endpoint to retrieve branded assets for the required integrations, including logos and buttons, and use them on the integration selection page. Cache the assets instead of calling the endpoint each time a user visits the platform selection page.
+
+Add a relevant platform key as a parameter to the call, choosing from the [accounting](/integrations/accounting/overview#platform-keys), [banking](/integrations/banking/overview#platform-keys) or [commerce](/integrations/commerce/overview#platform-keys) options. The `platformKey` is  a unique key Codat uses to remove the dependency on a platform's display name.
+
+:::info Branded assets provided by Codat
+
+We advise using the assets provided by Codat because they meet the requirements of the supported integrations. For example, Intuit integrations (QuickBooks Online and QuickBooks Desktop) mandate the use of QuickBooks branded buttons, including specific hover states.
+:::
+
+## Direct user to enter credentials
+
+Next, direct your customer to enter their credentials and authorize your connection with their selected platform. 
+
+To do that, create a data connection using the [Create connection](/platform-api#/operations/create-connection) endpoint. In response, you will receive a `linkUrl`.
+
+Direct your user to the `linkUrl`. The page will prompt them to enter their credentials for the third-party platform, authorizing the connection and activating it in Codat.
+
+:::tip One-time passwords for Link
+
+Hosted Link supports one-time password (OTP) functionality. Reach out to your Codat contact to learn more.
+
+:::
 
 :::info Platform-specific pages
 
-For some integrations, the authorization flow will include additional setup instructions or steps. For example:
+For some integrations, the authorization flow may include additional instructions or steps. For example:
 
-- Sage Intacct and NetSuite require complex user permissions
-- Microsoft Dynamics 365 Business Central requires your users to install a package on their machine
-- Xero requires the company to confirm their name before redirecting to Xero to connect
-  :::
-
-3. Once the user has successfully authenticated in their platform and thus authorized a data connection, redirect them back to your app. Ensure you handle all possible redirect status codes and error messages so that your users understand when something has gone wrong. Read [Redirect URLs](doc:redirect-urls) to learn more about how redirect URLs are used with Codat's products.
-
-If you don't set a redirect URL, the user will be presented with a pre-built success page.
-
-If a redirect URL is not set, then pre-built UI will be presented to your user. This will be the success and overview page of Link - our pre-built white-labelled UI.
-
-:::caution Rules on number of connections to different integration types
-
-A company may link a single source of accounting data but multiple sources of banking or commerce data. Any combination of accounting, banking, and commerce connections is allowed. For more on data connections and connection statuses see [Data connections](doc:core-dataconnections).
+- Sage Intacct and NetSuite require complex user permissions.
+- Microsoft Dynamics 365 Business Central requires your users to install a package on their machine.
+- Xero requires your customer to confirm the company they want to link.
 :::
 
-### 4. Confirm successful authorization and data synchronization
+Once the customer successfully authorized the data connection, redirect them back to your app. Make sure to handle all possible redirect status codes and error messages so that your users understand what has gone wrong. 
 
-1. Once the connection is complete (for guidance on how to monitor the connection, read [Set up alerts](doc:set-up-alerts)), mark the connection as authorized and confirm to your user the successful authorization of the connection.
-2. Monitor the synchronization of data (also available in <a href="https://api.codat.io/swagger/index.html#/DataStatus/get_companies__companyId__dataStatus">Swagger</a>):
+If you don't set a redirect URL, the user will be presented with our pre-built Link success page. To learn more about redirect URLs in Codat, see [Redirect URLs](/auth-flow/customize/set-up-redirects).
 
-```http
-GET /dataStatus",
-```
+:::caution Limitations on number of connections
 
-Once the initial synchronization of data is complete, you can inform the user accordingly and continue the flow of your app.
+A company may only link a single source of accounting data, but multiple sources of banking or commerce data. Any combination of accounting, banking, and commerce connections is allowed. For more on data connections and connection statuses, see [Data connections](/core-concepts/connections).
+:::
 
-### 5. Allow your users to manage their ongoing connection(s)
+## Confirm successful authorization
 
-Have the following values at hand:
+Once the connection is complete, mark it as authorized and confirm successful authorization to the user. If you want to monitor the connection, you can [set up a webhook](/using-the-api/webhooks/overview) to be informed of the status change.
 
-- The company `id` of the Codat company that represents the user, hereafter referred to as `companyId`
-- The `id` of the connection you want to modify, hereafter referred to as `connectionId`
+The connection completion triggers the initial synchronization of data for the newly connected company. You can monitor the progress of the sync in the [Codat Portal](/using-the-api/pull-history), using our API's [Get data status](/platform-api#/operations/get-company-data-status) endpoint, or with a [webhook](/using-the-api/webhooks/event-types).
 
-To get these values:
+Once the initial data sync completes, inform the user accordingly and continue the flow of your app.
 
-```
-GET /companies
+## Allow users to manage connection
 
-//Example response:
-{
-        //Company ID
-        "id": "40ef18ac-acf0-4ea1-8667-05398c0b75fa",
-      //End of company ID
-      "name": "Superapp",
-      "platform": "",
-      "redirect": "https://link.codat.io/company/40ef18ac-acf0-4ea1-8667-05398c0b75fa",
-      "dataConnections": [],
-      "created": "2022-05-16T15:51:03Z"
-    },
-    {
-      //Platform connection ID
-      "id": "1126743b-113d-4d72-b14f-36d6742df487",
-      //End of platform connection ID
-      "name": "Superapp",
-      "platform": "Xero",
-      "redirect": "https://link.codat.io/company/1126743b-113d-4d72-b14f-36d6742df487",
-      "lastSync": "2022-05-16T15:52:15.6455941Z",
-      "dataConnections": [
-        {
-          "id": "f42c2cbe-dfab-4b13-a16f-51729c75bd2e",
-          "integrationId": "0f20c943-12d0-4800-9f6c-d218f62d494c",
-          "sourceId": "8a156a5a-39cb-4f9d-856e-76ef9b9a9607",
-          "platformName": "Xero",
-          "linkUrl": "https://link-api.codat.io/companies/1126743b-113d-4d72-b14f-36d6742df487/connections/f42c2cbe-dfab-4b13-a16f-51729c75bd2e/start",
-          "status": "Linked",
-          "lastSync": "2022-05-16T15:52:15.6455938Z",
-          "created": "2022-05-16T15:00:00Z",
-          "sourceType": "Accounting"
-        }
-      ],
-      "created": "2022-05-16T14:55:22Z"
-    },
-```
+Going forward, your customer must have control over the data they've given you the permission to access. This is key from a regulatory perspective and builds trust between you and your customer. To build this capability, you will need these values: 
 
-#### Allow users to view existing connections for their company
+- The `companyId` of the Codat company that represents the user
+- The `connectionId` of the connection the user wants to modify 
 
-```http
+Use the [Get company](/platform-api#/operations/get-company) endpoint if you need to get these values from company metadata. 
 
-GET /companies/{companyId}/connections",
-```
+#### Allow users to view existing connections
 
-This endpoint is also available in <a href="https://api.codat.io/swagger/index.html#/DataStatus/get_companies__companyId__dataStatus">Swagger</a>.
+Call the [List connections](/platform-api#/operations/list-connections) endpoint to get all the existing connections for a company and display them to your customer. 
 
-In the request above, the `companyId` is the `companyId` that was returned to you when you created a Codat company for the user. It can also be found in the company's metadata retrieved from
+#### Allow users to deauthorize 
 
-#### Allow users to revoke access to their platform
+User's consent is collected via OAuth2, which means we are able to access your customer's data on an ongoing basis. 
 
-Allow your users to prevent further synchronizations with a connection, whilst still allowing you to access data that has already been pulled or pushed:
+Therefore, your customers should be able to deauthorize an existing connection, essentially revoking your access to their platform. You will still be able to access previously synced data, but unable to perform any further syncs. 
 
-```http
-POST /companies/{companyId}/connections
-
-Request body:
-
-"platformKey"
-```
-
-This endpoint is also available in <a href="https://api.codat.io/swagger/index.html#/Connection/patch_companies__companyId__connections__connectionId_">Swagger</a>.
+Use the [Unlink connection](/platform-api#/operations/unlink-connection) endpoint to deauthorize the connection without deleting it. 
 
 #### Allow users to delete a connection
 
-To delete a connection entirely, preventing both further synchronizations and the ability to make any data pulls or pushes:
+Your customer's data is also permanently stored in our central data database, unless the connection has been deleted. We do this so that the data is always accessible via our API and we don’t need to go to the platform to get it, avoiding rate limits as a result. 
 
-```http
-DELETE /companies/{companyId}/connections/{connectionId}",
-```
+However, your customer may want to delete a connection entirely, preventing you from synchronizing new data or viewing synced data. To do that, use the [Delete connection](/platform-api#/operations/delete-connection) endpoint. 
 
-### Bonus: Show that your authorization flow is powered by Codat
+The end user would need to authorize a new data connection if you wish to view new data for this company.
 
-To [boost your customers' trust](doc:privacy-trust-and-support#show-that-your-auth-flow-is-powered-by-codat), you can embed our "Powered by Codat logo" into your application.
+:::tip Codat's connection management
 
-You can [download the logo](https://static.codat.io/public/branding/powered-by-codat.svg") or link it from our content delivery network:
+Codat is releasing a low-code embeddable UI component for connection management. Please [let us know](https://forms.gle/d1zuh2iHBLJCNCsj9) if you are interested in using it.
 
-<img
-  src="https://static.codat.io/public/branding/powered-by-codat.svg"
-  alt="Powered by Codat"
-/>
+For a detailed best practices article on connection management, see [Connection management](/auth-flow/optimize/connection-management).
+
+:::
+
+## Best practices
+
+We summarized our extensive experience in building authorization flows and maximizing conversion in the following best practice suggestions.
+
+1. **Show that your authorization flow is powered by Codat**
+
+To boost your customers' trust, you can [download our "Powered by Codat" logo](https://static.codat.io/public/branding/powered-by-codat.svg) and embed it into your application.
+
+2. **Use webhooks to monitor updates**
+
+Where possible, use our [webhooks service](/using-the-api/webhooks/overview) to receive updates on company and data statuses. This will allow you to fetch fresh data as soon as it is available and reduce the amount of calls to our API.
+
+3. **Manage data usage permissions**
+
+We only support the management of data access permissions, not data usage permissions. This means your customer can consent to us accessing their data, and not to what is done with it. If you want to manage how the data is used, you need to do that in your system.
+
+4. **Enable users without credentials**
+
+In your customer's organization, the person signing up through Codat may not have their credentials to hand. For example, it may be their accountant who actually logs into their accounting platform.
+
+To enable them to proceed and explore your product, make upfront authorization for different integration categories optional in **Settings > Auth flow > Link**. Later, remind them to authorize or give them an alternative, such as `Can't sign in to your platform?`.
+
+If the customer selects this option, you can:
+
+- Provide them with a Link URL they can share
+- Use a `mailto:` link, optionally even prefilling the subject line and email body
+
+It's important that the request to authorize comes from your customer to ensure that the message is trusted.
+
+---
+
+## Read next
+
+- Learn more about our [Link SDK](https://docs.codat.io/auth-flow/authorize-embedded-link)

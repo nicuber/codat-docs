@@ -1,15 +1,14 @@
 ---
 title: "Basiq"
 description: "Learn about our Basiq integration"
-createdAt: "2022-10-06T08:43:13.400Z"
-updatedAt: "2022-10-20T10:20:35.670Z"
+sidebar_label: Overview
 ---
-
+<p>
 <a class="external" href="https://basiq.io/" target="_blank">
   Basiq
-</a> is a third-party provider of open banking services with connections to bank
+</a> is a third-party provider of Open Banking services with connections to bank
 accounts at over 130 financial institutions, covering the Australian and New Zealand
-markets.
+markets.</p>
 
 Our banking integration with Basiq lets you securely connect to and retrieve your SMB customers' banking data in a standardized format.
 
@@ -19,9 +18,9 @@ View the coverage of our Basiq integration in the <a className="external" href="
 
 The following banking data is available through the integration:
 
-- [Banking accounts](/data-model/banking/-banking-accounts)
-- [Banking account balances](/data-model/banking/-banking-account-balances)
-- [Banking transactions](/data-model/banking/-banking-transactions)
-- [Banking transaction categories](/data-model/banking/-banking-transaction-categories)
+- [Banking accounts](/banking-api#/schemas/banking-accounts)
+- [Banking account balances](/banking-api#/schemas/banking-account-balances)
+- [Banking transactions](/banking-api#/schemas/banking-transactions)
+- [Banking transaction categories](/banking-api#/schemas/banking-transaction-categories)
   :::info Supported financial institutions
   You'll automatically gain access to any new financial institutions that Basiq adds to their platform.

@@ -1,8 +1,7 @@
 ---
 title: "Set up your Plaid integration"
 description: "Learn how to set up our Plaid integration, customize the Link journey, and enable production access"
-createdAt: "2020-02-25T17:44:15.007Z"
-updatedAt: "2022-12-16T17:24:23.809Z"
+sidebar_label: Setup
 ---
 
 Before you can access your SMB customers' banking data from Plaid in Codat, you need to set up your integration.
@@ -69,7 +68,7 @@ You'll need to:
 Plaid allows you to customise the look, feel and content of the link site that customers see when they authorize your connection to their banking data. This is the customer journey you'll follow during testing.
 
 1. Still on the Plaid website, from the top menu, select **Customize**.  
-   A new page is displayed with the options for the link site that you can customise in the left pane. On the right, there's a preview pane where you can see the immediate effect of any changes you've made before you publish them. See [Plaid link customization](https://support.plaid.com/hc/en-us/articles/360008420353-Plaid-Link-customization) for descriptions of what each option does.
+   A new page is displayed with the options for the link site that you can customise in the left pane. On the right, there's a preview pane where you can see the immediate effect of any changes you've made before you publish them. See [Plaid link customization](https://plaid.com/docs/link/customization/) for descriptions of what each option does.
 2. To update an option you're interested in, select it in the left pane.  
    The customisable elements are displayed so that you can update them. Any changes you make are immediately displayed in the preview pane.
 3. When you're happy with your changes, select **Publish changes**, and then at the top of the left pane, select **GO BACK >** to return to the main options menu.
@@ -83,3 +82,17 @@ When you are ready to connect to live data, you will need to request access from
 2. Select **Migrate to Production** and follow the process to request access to the Plaid production environment, and to get your secure credentials.
 3. Once you have your Production Secret, enter it in the box for the Production Secret within the Plaid configuration page in the Codat Portal.
 4. Please note that the Country Codes default value in Plaid's Production environment is the following: `US,CA`.
+
+## Customizing Plaid's Link
+
+You are able to customise your Plaid link journey and utilise the customised version in the link flow powered by Codat.
+
+Log into https://dashboard.plaid.com/link
+
+Create a new config by clicking the dropdown. Make note of the 'Name' and countries you choose as we will use these later.
+
+On the left bar, navigate to Institution Select and set the institutions you would like to appear. Click Publish Changes.
+
+Log into the Codat Portal and navigate to Integrations > Banking > Plaid > Manage.
+
+Enter the country code for the selected countries, and the Name which you chose earlier.

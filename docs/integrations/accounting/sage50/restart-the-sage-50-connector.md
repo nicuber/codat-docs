@@ -2,8 +2,7 @@
 title: "Restart the Sage 50 connector"
 slug: "restart-the-sage-50-connector"
 description: "How to enable and use the restart button on a Sage 50 connector."
-createdAt: "2020-07-16T16:28:31.526Z"
-updatedAt: "2022-11-21T11:57:31.582Z"
+sidebar_label: Restart the connector
 ---
 
 In some circumstances, your users might want to restart their Sage 50 connector. For example, they might have syncs in progress that were interrupted by a technical issue.
@@ -39,7 +38,7 @@ To obtain the connector ID from your user, please ask them to:
 
 4. Paste their connector ID into a document or email and send it to you.
 
-You can then send the connector ID to the Codat Support team at [support@codat.io](mailto:support@codat.io). They will confirm when the **Restart connector** link has been enabled.
+You can then send the connector ID to the Codat Support team by raising a ticket through the [support request form](https://codat.zendesk.com/hc/en-gb/requests/new). They will confirm when the **Restart connector** link has been enabled.
 
 ## Use the restart connector link
 

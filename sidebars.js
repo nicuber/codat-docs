@@ -1,15 +1,28 @@
-const authFlow = require("./sidebars/authFlow");
-const dataModel = require("./sidebars/dataModel");
+const authFlow = require("./sidebars/auth-flow");
 
-const accountingApi = require("./sidebars/accounting-api");
+const useApi = require("./sidebars/use-the-api");
+
+const products = require("./sidebars/products");
+const usecases = require("./sidebars/usecases");
+
+const lending = require("./sidebars/lending");
+const bankfeeds = require("./sidebars/bank-feeds");
+const commerce = require("./sidebars/sync-for-commerce");
+const expenses = require("./sidebars/sync-for-expenses");
+const payroll = require("./sidebars/payroll");
+const payables = require("./sidebars/payables");
+const supplierEnablement = require("./sidebars/supplier-enablement");
+
+const accountingAPI = require("./sidebars/accounting-api");
 const bankingAPI = require("./sidebars/banking-api");
 const commerceAPI = require("./sidebars/commerce-api");
-const bankfeeds = require("./sidebars/bank-feeds-api");
-const assess = require("./sidebars/assess");
-const sfc = require("./sidebars/sync-for-commerce");
-const sfe = require("./sidebars/sync-for-expenses");
 
-const integrations = require("./sidebars/integrations");
+const integrationsAccounting = require("./sidebars/integrations-accounting");
+const integrationsBanking = require("./sidebars/integrations-banking");
+const integrationsCommerce = require("./sidebars/integrations-commerce");
+const integrationsBankFeeds = require("./sidebars/integrations-bank-feeds");
+const enterprise = require("./sidebars/enterprise");
+const smbHelpHub = require("./sidebars/smb-help-hub");
 
 module.exports = {
   docs: [
@@ -17,186 +30,164 @@ module.exports = {
       type: "doc",
       id: "index",
       label: "What is Codat?",
-      className: "hidden",
+      className: "top-level-item hidden",
     },
     {
       type: "category",
-      label: "Getting started",
-      //label: '_getStarted',
+      label: "Get started",
       collapsed: true,
-      className: "introduction",
+      className: "top-level-item top-level-item-list get-started",
+      link: {
+        type: 'doc',
+        id: "get-started/overview",
+      },
       items: [
-        "introduction/first-steps",
-        "introduction/create-account",
-        "introduction/migration",
-        {
-          type: "link",
-          label: "Integration coverage",
-          href: "https://knowledge.codat.io/supported-features/accounting",
-        },
+        "get-started/first-steps",
+        //"get-started/first-ten-minutes",
+        "get-started/libraries",
+        "get-started/developer-resources",
+        //"get-started/office-hours",
+        "glossary",
+        "get-started/migration",
+        "get-started/accounting-for-beginners",
       ],
     },
     {
+      type: "doc",
+      label: "Tutorials",
+      className: "top-level-item top-level-item-single tutorials",
+      id: "guides/overview",
+    },
+    {
       type: "category",
-      label: "Core concepts",
-      //label: '_concepts',
+      label: "Use cases",
       collapsed: true,
-      className: "core",
+      className: "top-level-item top-level-item-list usecases",
+      link: {
+        type: 'doc',
+        id: "usecases/overview",
+      },
+      items: usecases,
+    },
+    {
+      type: "category",
+      label: "Learn",
+      collapsed: true,
+      customProps: {
+        hr: true,
+      },
+      className: "top-level-item top-level-item-list learn",
+      link: {
+        type: 'doc',
+        id: "core-concepts/overview",
+      },
       items: [
-        "core-concepts/overview",
         "core-concepts/companies",
         "core-concepts/connections",
         "core-concepts/integrations",
-        "core-concepts/data-type-settings",
-        "core-concepts/status",
+        "core-concepts/data-type",
+        "core-concepts/status", // @tooo: move into using api?
         {
           type: "link",
-          href: "/codat-api",
-          label: "Common API reference",
+          href: "/platform-api",
+          className: "external",
+          label: "Platform API reference",
         },
       ],
     },
     {
       type: "category",
-      label: "Using our API",
-      //label: '_api',
+      label: "Configure",
       collapsed: true,
-      className: "api",
+      className: "top-level-item top-level-item-list config",
+      link: {
+        type: 'doc',
+        id: "configure/portal/dashboard",
+      },
       items: [
-        "using-the-api/overview",
-        "using-the-api/authentication",
-        "using-the-api/managing-companies-1",
-        "using-the-api/modified-dates-1",
-        "using-the-api/ordering-results",
-        "using-the-api/paging",
-        "using-the-api/querying",
-        "using-the-api/queueing-data-syncs-1",
-        "using-the-api/errors",
-        {
-          type: "category",
-          label: "Webhooks",
-          collapsed: true,
-          items: [
-            "introduction/webhooks/core-rules-create",
-            "introduction/webhooks/core-rules-types",
-            "introduction/webhooks/core-rules-webhooks",
-            "introduction/webhooks/core-rules-webhooksecurity",
-            "introduction/webhooks/receive-webhooks-as-email-alerts",
-          ],
-        },
-        "introduction/change-policy",
-      ],
-    },
-    {
-      type: "category",
-      label: "Authorization flow",
-      //label: '_authFlow',
-      collapsed: true,
-      className: "auth",
-      items: authFlow,
-    },
-    {
-      type: "category",
-      label: "Data model",
-      collapsed: true,
-      className: "data",
-      items: dataModel,
-    },
-    {
-      type: "category",
-      label: "Other guides",
-      collapsed: true,
-      className: "other",
-      items: [
-        "other/developer-resources", 
-        "other/file-upload",
-        {
-          type: "category",
-          label: "Portal",
-          collapsed: true,
-          items: [
-            "other/portal/dashboard",
-            "other/portal/companies",
-            "other/portal/developers",
-            "other/portal/pull-and-push-history",
-            "other/portal/account-management",
-          ],
-        },
+        "configure/products",
+        "configure/integrations",
+        "core-concepts/data-type-settings",
         {
           type: "category",
           label: "User management",
           collapsed: true,
           items: [
-            "other/user-management/adding-users",
-            "other/user-management/user-roles",
-            "other/user-management/sso",
+            "configure/user-management/adding-users",
+            "configure/user-management/user-roles",
+            "configure/user-management/sso",
+
           ],
         },
+       // {
+       //   type: "category",
+       //   label: "Plans",
+       //   collapsed: true,
+       //   items: [
+       //     "configure/plans/free",
+       //     "configure/create-account",
+       //     "configure/portal/usage-and-billing",
+       //   ],
+       // },
+        "configure/create-account",
+        "configure/portal/account-management",
       ],
     },
     {
       type: "category",
-      label: "Products",
+      label: "Use our API",
       collapsed: true,
-      className: "products",
-      items: [
-        {
-          type: "link",
-          label: "Accounting API",
-          className: "product accounting",
-          href: "/accounting-api/overview",
-        },
-        {
-          type: "link",
-          label: "Banking API",
-          className: "product banking",
-          href: "/banking-api/overview",
-        },
-        {
-          type: "link",
-          label: "Commerce API",
-          className: "product commerce",
-          href: "/commerce-api/overview",
-        },
-        {
-          type: "link",
-          label: "Bank Feeds API",
-          className: "product bankfeed",
-          href: "/bank-feeds-api/overview",
-        },
-        {
-          type: "link",
-          label: "Assess",
-          className: "product assess",
-          href: "/assess/overview",
-        },
-        {
-          type: "link",
-          label: "Sync for Expenses",
-          className: "product sfe",
-          href: "/sync-for-expenses/overview",
-        },
-        {
-          type: "link",
-          label: "Sync for Commerce",
-          className: "product sfc",
-          href: "/sfc/overview",
-        },
-      ],
+      className: "top-level-item top-level-item-list api",
+      link: {
+        type: 'doc',
+        id: "using-the-api/overview",
+      },
+      items: useApi,
+    },
+    {
+      type: "category",
+      label: "Auth flow",
+      collapsed: true,
+      className: "top-level-item top-level-item-list auth",
+      link: {
+        type: 'doc',
+        id: "auth-flow/overview",
+      },
+      items: authFlow,
     },
     {
       type: "category",
       label: "Integrations",
       collapsed: true,
-      className: "integrations",
-      items: integrations,
+      className: "top-level-item top-level-item-list integrations",
+      items: [
+        "integrations/accounting/overview",
+        "integrations/banking/overview",
+        "integrations/commerce/overview",
+        {
+          type: "doc",
+          id: "integrations/bank-feeds/overview",
+          label: "Bank feeds",
+        },
+        "integrations/file-upload",
+      ]
     },
+    ...products,
   ],
-  accounting: accountingApi,
-  banking: bankingAPI,
-  commerce: commerceAPI,
   bankfeeds: bankfeeds,
-  sfc: sfc,
-  assess: assess,
-  syncForExpenses: sfe,
+  commerce: commerce,
+  lending: lending,
+  expenses: expenses,
+  payroll: payroll,
+  payables: payables,
+  integrationsAccounting: integrationsAccounting,
+  integrationsBanking: integrationsBanking,
+  integrationsCommerce: integrationsCommerce,
+  integrationsBankFeeds: integrationsBankFeeds,
+  enterprise: enterprise,
+  supplierEnablement: supplierEnablement,
+  smbHelpHub: smbHelpHub,
+  //accountingAPI: accountingAPI,
+  //bankingAPI: bankingAPI,
+  //commerceAPI: commerceAPI,
 };

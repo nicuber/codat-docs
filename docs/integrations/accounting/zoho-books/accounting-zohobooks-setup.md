@@ -1,8 +1,7 @@
 ---
 title: "Set up the Zoho Books integration"
 description: "Explore our API integration with Zoho Books."
-createdAt: "2020-03-15T19:02:48.085Z"
-updatedAt: "2023-01-16T11:39:41.517Z"
+sidebar_label: Setup
 ---
 
 Zoho Books is a global accounting package with customers in the UK, US, Australia, India, and South Africa.
@@ -24,7 +23,7 @@ Codat currently supports the UK and US regions only for Zoho Books.
 
 Codat works within the rate limits set by Zoho Books to minimize the impact on data syncs. By default, line items are excluded when retrieving invoices and credit notes. For customers, address and contact information is excluded.
 
-See [Zoho Books limits and reduced data pulls](/zoho-book-limits) to understand more about how Zoho Books controls the volume of data your organization can retrieve, and the number of data connections per organization.
+See [Zoho Books limits and reduced data pulls](zoho-book-limits) to understand more about how Zoho Books controls the volume of data your organization can retrieve, and the number of data connections per organization.
 :::
 
 ## Register your application
@@ -42,7 +41,7 @@ To register your Zoho Books application.
    The **Create New Client** page is displayed.
 3. Add the following details:
    - From the **Client Type** list, select **Server-based Applications**.
-   - In the **Client Name** box, enter your company's name. Your customers see this when they authorise your connection to their accounting system.
+   - In the **Client Name** box, enter your company's name. Your customers see this when they authorize your connection to their accounting system.
    - In the **Homepage URL** box, enter your company's website address.
    - In the **Authorized redirect URIs** box, enter `https://zohobooks.codat.io/oauth/callback`
 4. Click **Create**.  
@@ -78,3 +77,7 @@ In the Codat Portal, go to the <a className="external" href="https://app.codat.i
 2. You can also click **Manage** to view the integration's settings page, and then enable the integration from there.
 
 Your Zoho Books integration is now set up.
+
+:::tip Testing with Zoho Books
+Zoho Books allows you to set up a test organization and import or create test data. Register a free account with [Zoho Subscriptions](https://www.zoho.com/uk/subscriptions/?utm_source=zbooks&utm_medium=web-app&utm_content=topbar&utm_campaign=cross-sell), create a new test organization and set a default company for it. Click **Manage** next to the organization name, find the required company, then press **... -> Mark as Default**.
+:::

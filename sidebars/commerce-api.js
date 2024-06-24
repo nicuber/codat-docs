@@ -5,20 +5,25 @@ module.exports = [
     label: "All Docs",
     className: "back",
   },
-  "commerce-api/overview",
   {
-    type: "link",
+    type: "doc",
+    label: "Commerce API",
+    id: "commerce-api/overview",
+    className: "header",
+  },
+  {
+    type: "doc",
     label: "Commerce data model",
-    href: "data-model/commerce/",
+    id: "commerce-api/commerce-data-types",
   },
   {
-    type: "link",
+    type: "doc",
     label: "Commerce integrations",
-    href: "integrations/commerce/overview",
+    id: "integrations/commerce/overview",
   },
   {
     type: "link",
-    href: "/commerce-api",
     label: "Commerce API reference",
+    href: "/commerce-api",
   },
 ];

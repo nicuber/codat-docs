@@ -1,8 +1,9 @@
 ---
 title: "Data type settings"
+sidebar_label: "Data types"
 description: "Concept overview and key details"
-createdAt: "2019-02-20T13:19:55.318Z"
-updatedAt: "2022-11-23T15:22:42.512Z"
+tags:
+  - Core concept
 ---
 
 A 'data type' is a specific type of data, like an [invoice](/accounting-api#/schemas/Invoice).
@@ -34,16 +35,18 @@ When **Fetch on first link** is _on_ for a data type:
 
 - The data type is automatically queued for synchronization when a company is first linked, provided that the data type is available in the company's accounting platform.
 - The data type is queued for synchronization when clicking the **Refresh data** button for a company in the Codat Portal.
-- The data type is queued for synchronization when you make a request to [POST /companies/{companyId}/data/queue/{dataType}](https://api.codat.io/swagger/index.html#/Data/post_companies__companyId__data_queue__dataType_) with _all_ as the datatype.
+- The data type is queued for synchronization when you make a request to [`POST /companies/{companyId}/data/queue/{dataType}`](https://api.codat.io/swagger/index.html#/Data/post_companies__companyId__data_queue__dataType_) with _all_ as the datatype.
 
 When **Fetch on first link** is turned _off_ for a data type:
 
 - The data type is not automatically queued for synchronization when a company is first linked.
-- You can still queue a pull for this individual data type using the [POST /companies/{companyId}/data/queue/{dataType}](https://api.codat.io/swagger/index.html#/Data/post_companies__companyId__data_queue__dataType_) endpoint. This might be useful for testing, or if you only need infrequent access to a dataset.
+- You can still queue a pull for this individual data type using the endpoint [`POST /companies/{companyId}/data/queue/{dataType}`](https://api.codat.io/swagger/index.html#/Data/post_companies__companyId__data_queue__dataType_). This might be useful for testing, or if you only need infrequent access to a dataset.
 
-For more information about how to synchronize datasets on demand, see [Synchronizing your data](/data-status).
+For more information about how to synchronize datasets on demand, see [Synchronizing your data](/core-concepts/status).
 
 ## Choose a synchronization frequency
+
+By default, **Sync frequency** is set to **None**. 
 
 You can change the synchronization frequency using the drop-down list next to the data type name:
 
@@ -53,7 +56,13 @@ You can change the synchronization frequency using the drop-down list next to th
 - Daily
 - Hourly (premium feature)
 
-By default, **Sync frequency** is set to **None**.
+Syncs will automatically trigger based on the last sync date. For example, if the frequency is daily (24 hours), the next sync would automatically be queued 24 hours after the last sync. 
+
+It is not possible to set a specific date or time for syncs to occur. If you need this kind of functionality, you can build custom scheduling using cron and our [Refresh data type](https://docs.codat.io/platform-api#/operations/refresh-data-type) endpoint.
+
+:::note Offline connectors
+If a connector remains installed on the user’s machine and a sync frequency is configured, the offline connector will continue to periodically sync data when the connector is available.
+:::
 
 ## Queue a sync from the Codat Portal
 
@@ -63,12 +72,10 @@ To manually trigger your data to be synchronized:
 2. Select the required company, then click **Refresh data**.
 
 You can also view **Pull history** and **Push history** to check the status of previous pull and push data syncs.
-<!-- 
-:::note Additional sync settings
 
-Some additional settings for the data type sync are available [via our API](https://docs.codat.io/reference/post_profile-syncsettings).
-
-::: -->
+:::note Default sync history
+For most data types, we retrieve all available history. For financial statement data types (`balanceSheet`, `profitAndLoss`, `cashFlowStatement`), we retrieve 24 months of history. These default settings can be overriden via our API using [advanced sync settings](/knowledge-base/advanced-sync-settings).
+:::
 
 ---
 

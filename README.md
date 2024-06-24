@@ -1,28 +1,34 @@
 # Codat docs
 
-> :warning: **These docs are in beta** 
->
-> In the meantime, please use [our existing docs](https://docs.codat.io/docs)
-
 The official [Codat](https://codat.io) documentation.
 
-- [Browse the docs](https://codat-docs.vercel.app/)
+- [Browse the docs](https://docs.codat.io/)
 - [Contributing Guide](./CONTRIBUTING.md)
 - [OpenAPI Spec](https://github.com/codatio/oas)
-- [Product roadmap](https://bit.ly/codatpbroadmap1) | [DX roadmap](https://bit.ly/devexroadmap)
+
+[![Linkinator CI](https://github.com/codatio/codat-docs/actions/workflows/linknator.yml/badge.svg)](https://github.com/codatio/codat-docs/actions/workflows/linknator.yml)
 
 ---
 
 ## Running locally
 
-#### Run the project
+### Create a .env file
+
+The docusaurus config expects certain environment variables to be defined. We've included `.env.example` - copy this and rename it to `.env`. You can enter any random string for the IDs.
+
+```
+copy .env.example .env # on Windows 
+cp .env.example .env # on Mac
+```
+
+### Run the project
 
 ```sh
 npm install
 npm run start
 ```
 
-#### Editing article markdown files
+### Editing article markdown files
 
 `/docs`
 

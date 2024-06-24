@@ -14,6 +14,13 @@
   margin-top: 0;
 }
 
+.docItemCol {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  padding: var(--padding-page-border);
+}
+
 @media (min-width: 997px) {
   .docItemCol {
     max-width: 75% !important;

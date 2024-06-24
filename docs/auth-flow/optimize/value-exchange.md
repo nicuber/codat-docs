@@ -1,8 +1,6 @@
 ---
 title: "Value exchange"
 description: "Communicate the benefits customers can receive from connecting their data"
-createdAt: "2022-06-10T22:47:32.026Z"
-updatedAt: "2022-10-20T15:21:34.752Z"
 ---
 
 The value exchange is maybe the single most important part of your implementation. It intercepts your customer at their decision point, explaining why they would benefit from connecting their accounts.
@@ -65,8 +63,15 @@ Keep users engaged by showing them the progress of their connection. Does your s
 - Specify the messaging that appears on the left panel throughout the Link flow according to the 3-part value exchange
 - Link out to FAQs
 
-To read more about different ways to customize Link, read [Customize your Link](/set-up-link).
+To read more about different ways to customize Link, read [Customize your Link](/auth-flow/customize/customize-link).
 
-You can also [build your own authorization journey](/build-your-own-authorization-journey) and get even more control over the SMB connectivity rate.
+You can also [build your own authorization journey](/auth-flow/build/build-your-own-authorization-journey) and get even more control over the SMB connectivity rate.
 
 :::
+
+
+---
+
+## Read next
+
+- See our advice on [addressing privacy concerns](/auth-flow/optimize/privacy)

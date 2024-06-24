@@ -1,8 +1,7 @@
 ---
 title: "Test your Stripe integration"
-description: "Test our Stripe integration by pulling sample data to a test Company"
-createdAt: "2021-02-04T12:16:20.828Z"
-updatedAt: "2022-10-20T09:25:35.756Z"
+description: "Test our Stripe integration by pulling sample data to a test company"
+sidebar_label: Testing
 ---
 
 You can use the Stripe Test integration to pull test data from Stripe to Codat.
@@ -13,7 +12,7 @@ Stripe lets you test accounts using [test API keys and test data](https://stripe
 
 ## Prerequisites
 
-Set up the Stripe Test integration by following the tasks in [Set up your Stripe integration](/commerce-stripe-setup).
+Set up the Stripe Test integration by following the tasks in [Set up your Stripe integration](/integrations/commerce/stripe/commerce-stripe-setup).
 
 ## Add a test company
 
@@ -32,7 +31,7 @@ In the <a className="external" href="https://app.codat.io/" target="_blank">Coda
    3. Enter a name for your testing account, then click **Create account**.
 
 3. Add some compatible test data to your account; for example Customers, Products, Disputes, and Payments.
-4. Complete steps 1-6 in [Register as a Stripe Connect platform](/commerce-stripe-setup#register-as-a-stripe-connect-platform) to gain access to your test credentials for the new account.
+4. Complete steps 1-6 in [Register as a Stripe Connect platform](/integrations/commerce/stripe/commerce-stripe-setup#register-as-a-stripe-connect-platform) to gain access to your test credentials for the new account.
 
 ## Connect your test company to your Stripe testing account
 
@@ -60,7 +59,7 @@ In the <a className="external" href="https://app.codat.io/" target="_blank">Coda
 
 1. Select **Companies**, then select your test company.
 1. Click **Refresh data**.
-1. Select **Commerce API**.
+1. Select **Data > Commerce**.
 1. Use the **Data type** dropdown to view test data from your Stripe testing account. For example, select **Products** or **Transactions**.
 
 :::info

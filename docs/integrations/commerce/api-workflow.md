@@ -1,10 +1,11 @@
 ---
 title: "Commerce API workflow"
+description: "After you've set up an integration, follow this process to use Codat's API to enable, link, and pull your customers' commerce data"
 createdAt: "2020-10-02T14:07:18.839Z"
 updatedAt: "2022-10-20T10:13:39.906Z"
 ---
 
-After you've set up an integration, follow this process to use Codat's API to enable, link, and pull your customers' commerce data. You'll need to:
+You'll need to:
 
 - Update your data type settings to enable commerce data types.
 - Create a company and data connection for your customer.
@@ -18,7 +19,7 @@ Update your [commerce sync settings](/integrations/commerce/commerce-sync-settin
 
 Create a Codat company and data connection for your customer.
 
-1. Open the [Create a company](/codat-api#/operations/create-company) endpoint.
+1. Open the [Create a company](/platform-api#/operations/create-company) endpoint.
 2. Enter a **companyName** and **platformType** and submit your request.
    The response returned includes:
    
@@ -78,5 +79,5 @@ When your customer authorises your connection to their company data, Codat autom
 
 :::info Sync status
 
-Before you can view data using one of the commerce endpoints, you must wait for the data synchronisation to complete. To check the status of any dataset, see the [sync status](/core-concepts/status) documentation.
+Before you can view data using one of the commerce endpoints, you must wait for the data synchronization to complete. To check the status of any dataset, see the [sync status](/core-concepts/status) documentation.
 :::

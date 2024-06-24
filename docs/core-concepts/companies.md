@@ -1,23 +1,34 @@
 ---
 title: "Companies"
-description: "Concept overview and key details"
-createdAt: "2019-02-19T11:23:34.715Z"
-updatedAt: "2022-10-11T09:52:16.189Z"
+description: "Your customer within Codat"
+tags:
+  - Core concept
 ---
 
-In Codat, a company represents a business sharing access to their data. Each company can have multiple [data connections](/core-concepts/connections) to different data sources such as one connection to [Xero](/accounting-xero) for accounting data, two connections to [Plaid](/banking-plaid) for two bank accounts and a connection to [Zettle](/integrations/commerce/zettle/commerce-zettle) for POS data.
+In Codat, a company represents a business sharing access to their data. Each company can have multiple [data connections](/core-concepts/connections) to different data sources such as one connection to [Xero](/integrations/accounting/xero/accounting-xero) for accounting data, two connections to [Plaid](/integrations/banking/plaid/banking-plaid) for two bank accounts and a connection to [Zettle](/integrations/commerce/zettle/commerce-zettle) for POS data.
 
 Typically each company is one of your customers.
 
-When you create a company, you can specify a `name` and we will automatically generate a unique `id` for the company.
+When you create a company, you can specify a `name` and we will automatically generate a unique `id` for the company. You can also add a `description` to store any additional information about the company.
 
-## Creating a company
+## If you're just getting started...
 
-Companies can be created in one of two ways:
+You can use the Codat portal to create and manage companies, 
 
-1. Using the <a className="external" href="/codat-api#/operations/create-company" target="_blank">POST /companies</a>
+- [Add a new company](/configure/portal/companies#add-a-new-company)
+- [Manage companies via the Portal](/configure/portal/companies)
 
-2. Using the [Codat portal](/other/portal/companies#add-a-new-company).
+## If you're scaling...
+
+You probably want to use our API. Each of our API references (and associated SDKs) includes the necessary endpoints for creating and updating companies.
+
+If you're just looking to leverage our company management functionality, you can also use our [Platform API](/platform-api#).
+
+- [Create a new company](/platform-api#/operations/create-company) - `POST /companies`
+- [List your existing companies](/platform-api#/operations/list-companies) - `GET /companies` 
+- [Update an existing company](/platform-api#/operations/update-company) - `PUT /companies/{companyId}`
+
+
 
 :::caution Forbidden characters in company names
 
@@ -26,17 +37,18 @@ Company names may only contain letters, numbers, spaces, and the following symbo
 Any forbidden characters will be removed from your company name. For example: `Example Company (Codat[1])` will be created as `Example Company Codat1`.
 :::
 
-## Managing your companies
+## If you're supporting different types of customers...
 
-You have two options for managing companies:
+You can use our *groups* feature and assign a company to one or more groups. You might choose to group companies based on the different products and services you provide, your internal team structures, different geographies, and more.
 
-- [Manage companies via the Portal](/other/portal/companies).
-- [Manage companies via Codat's API](/using-the-api/managing-companies-1).
+A group can be used to manage who can access data from that group's set of companies and identify the use case or product a company is using. Learn how to do that [here](/using-the-api/managing-companies#manage-groups-of-companies).
 
 ---
 
 ## Read next
 
 - Next concept: [Connections](/core-concepts/connections)
-- [`GET https://api.codat.io/companies`](/codat-api#/operations/list-companies)
-
+- `POST /companies` - [API ref](/platform-api#/operations/create-company)
+- `GET /companies`  - [API ref](/platform-api#/operations/list-companies)
+- `PUT /companies/{companyId}` - [API ref](/platform-api#/operations/update-company)
+- [Platform API](/platform-api#)

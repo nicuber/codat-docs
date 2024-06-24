@@ -1,21 +1,43 @@
 ---
 title: "QuickBooks Desktop (on-premise)"
-description: "Learn about our QuickBooks Desktop on-premise connector."
-createdAt: "2019-02-21T11:24:07.280Z"
-updatedAt: "2022-12-22T14:29:34.191Z"
+description: "Learn about our QuickBooks Desktop on-premise connector"
 ---
 
-Our QuickBooks Desktop on-premise connector enables SMBs who use QuickBooks Desktop to share their consented accounting data through the Codat platform.
+:::caution New web connector documentation
 
-The connector is a Windows application that runs on the SMB user's local machine.
+This documentation describes the use of our new QuickBooks Desktop web connector. If you are using our legacy on-premise connector, refer to the previous version of our documentation:
+
+* [QuickBooks Desktop (on-premise) overview](/integrations/accounting/quickbooksdesktop/legacy/accounting-quickbooksdesktop)
+* [Install the QuickBooks Desktop connector on Right Networks](/integrations/accounting/quickbooksdesktop/legacy/install-qbd-connector-right-networks)
+* [Install the QuickBooks Desktop connector](/integrations/accounting/quickbooksdesktop/legacy/installing-the-quickbooks-connector)
+* [FAQs](/integrations/accounting/quickbooksdesktop/legacy/quickbooks-desktop-faq)
+* [Troubleshooting](/integrations/accounting/quickbooksdesktop/legacy/quickbooks-desktop-troubleshooting)
+* [QuickBooks Desktop requirements](/integrations/accounting/quickbooksdesktop/legacy/software-and-hardware-requirements)
+
+:::
+
+Our QuickBooks Desktop connector enables SMBs who use QuickBooks Desktop to share their consented accounting data through the Codat platform, supporting the following ways of connecting to QBD:
+
+- QuickBooks Desktop app
+- QuickBooks Enterprise Cloud
+- Right Networks
+
+The connector utilizes the Intuit Web Connector, a Windows application that runs on the SMB user's local machine.
+
+<div className="card">
+  <h3>✨ Premium</h3>
+
+  <p>This integration is only available as a premium add-on on our <a href="/configure/create-account">enterprise plans</a>.</p>
+</div>
 
 ## Data type coverage
 
-View the coverage of our QuickBooks Desktop on-premise connector in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-integration&integrationKey=pqsw" target="_blank">Data coverage explorer</a>.
+View the coverage of our QuickBooks Desktop connector in the [Data coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-integration&integrationKey=pqsw).
 
 :::caution Attachments not supported
 
-Uploading and downloading Attachments to QuickBooks Desktop is not supported for any data type. This functionality is not supported by the QuickBooks SDK.
+Uploading and downloading attachments to QuickBooks Desktop is not supported for any data type. This functionality is not supported by the QuickBooks SDK.
+
 :::
 
 ## Features and benefits
@@ -26,7 +48,7 @@ Our connector provides a seamless and full featured integration to QuickBooks De
   <li className="card">
     <div class="header">
       <img
-        src="https://www.codat.io/wp-content/themes/class/dist/images/copy-feature-bullet.svg"
+        src="/img/wp-icons/copy-feature-bullet.svg"
         class="mini-icon"
       />
       <h3>Runs in the background</h3>
@@ -39,7 +61,7 @@ Our connector provides a seamless and full featured integration to QuickBooks De
   <li className="card">
     <div class="header">
       <img
-        src="https://www.codat.io/wp-content/themes/class/dist/images/copy-feature-bullet.svg"
+        src="/img/wp-icons/copy-feature-bullet.svg"
         class="mini-icon"
       />
       <h3>Auto restarts and updates</h3>
@@ -52,7 +74,7 @@ Our connector provides a seamless and full featured integration to QuickBooks De
   <li className="card">
     <div class="header">
       <img
-        src="https://www.codat.io/wp-content/themes/class/dist/images/copy-feature-bullet.svg"
+        src="/img/wp-icons/copy-feature-bullet.svg"
         class="mini-icon"
       />
       <h3>Auto and manual syncs</h3>
@@ -65,7 +87,7 @@ Our connector provides a seamless and full featured integration to QuickBooks De
   <li className="card">
     <div class="header">
       <img
-        src="https://www.codat.io/wp-content/themes/class/dist/images/copy-feature-bullet.svg"
+        src="/img/wp-icons/copy-feature-bullet.svg"
         class="mini-icon"
       />
       <h3>Intuitive user interface</h3>
@@ -83,21 +105,11 @@ Before your SMB users can download and install the on-premise connector, you'll 
 
 ### 1. Add your branding
 
-Add your company branding: this is used in the link flow and in the connector app.
+Add your company branding: this is used in the Link flow.
 
-From the SMB user's perspective, they'll see the connector app as being owned and branded by you, rather than by Codat.
+From the SMB user's perspective, they'll see the connector app as being owned and branded by Intuit.
 
-### 2. Configure the link flow
-
-You can choose to configure the built-in Codat link flow for the connector. This will create a download link for the connector and provide the unique company ID (used as the license key) for each of your SMB users.
-
-Here's how that looks to your users:
-
-![](/img/old/c266e47-qbd-connector_download-page-end-of-link-flow.png)
-
-Alternatively, you can choose to build this functionality yourself using the Codat API. This involves calling the QuickBooks Desktop connector download endpoint (provided in the data connection response) and the customer ID. This allows you to maintain the look and feel of your company's brand, or to implement a specific workflow.
-
-### 3. Enable the connector
+### 2. Enable the connector
 
 Enable the QuickBooks Desktop connector in the <a className="external" href="https://app.codat.io/" target="_blank">Codat Portal</a>.
 
@@ -109,25 +121,20 @@ Enable the QuickBooks Desktop connector in the <a className="external" href="htt
 
 Here's how your SMB users interact with the QBD connector.
 
-- The SMB user downloads the connector as part of the link flow.
-- Initially, the connector installer requires administrator privileges (admin rights) to run.
-- The SMB user completes some simple steps to complete the installation (as described in [Install the QuickBooks Desktop connector](/installing-the-quickbooks-connector)). In summary, they'll need to:
-  - Enter their unique license number (their Codat Company ID), which is provided during the link flow.
-  - Complete some steps to point the connector at the correct accounting package data file on their local machine.
+- The user selects the way they connect QBD at the start of the flow. If they choose the `QuickBooks Desktop app` option, they will download the connector. Selecting any of the other options skips this step because hosted environments already have the web connector installed.
+- The user downloads and runs the connector installer. This requires the user to have administrator privileges (admin rights), or a different administrator to approve the installation and run the connector.
+- The SMB user then downloads and runs the configuration file (as described in [Install the QuickBooks Desktop connector](/integrations/accounting/quickbooksdesktop/installing-the-quickbooks-connector)). In summary, they'll need to:
+  - Authorise the connector to access the QuickBooks Desktop company.
+  - Enter the password into the connector, which is provided during the Link flow.
 
 When installed, the QBD connector doesn’t require any further interaction by the SMB user, and administrator privileges are no longer required.
 
-The connector has a UI that is accessible from the system tray. Your SMB users do not usually need to interact with this, but there is functionality available for advanced users, such as adding connections to multiple companies, pausing syncs, and manually starting syncs.
+The connector has a UI that is accessible from the system tray and the Start menu. Your SMB users do not usually need to interact with this, but there is functionality available for advanced users, such as adding connections to multiple companies, pausing syncs, and manually starting syncs.
 
 ## System requirements
 
-See [QuickBooks Desktop requirements](/software-and-hardware-requirements) to learn about the supported versions of QuickBooks Desktop, and the hardware, software, environment and networking requirements for running the connector.
+See [QuickBooks Desktop requirements](/integrations/accounting/quickbooksdesktop/software-and-hardware-requirements) to learn about the supported versions of QuickBooks Desktop, and the hardware, software, environment and networking requirements for running the connector.
 
 ## Install the connector
 
-See [Install the QuickBooks Desktop connector](/installing-the-quickbooks-connector) to learn how to set up and enable the connector.
-
-:::note Installation in hosted environments
-
-[Installation on Right Networks hosted instances](/install-qbd-connector-right-networks) is currently available in beta.
-:::
+See [Install the QuickBooks Desktop connector](/integrations/accounting/quickbooksdesktop/installing-the-quickbooks-connector) to learn how to set up and enable the connector.

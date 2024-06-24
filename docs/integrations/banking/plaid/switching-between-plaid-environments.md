@@ -1,8 +1,7 @@
 ---
 title: "Switch between Plaid environments"
 description: "Differences between Plaid Development and Production environments. Learn how to switch between these environments in the Codat Portal or the API."
-createdAt: "2020-07-29T13:22:03.620Z"
-updatedAt: "2022-12-16T17:22:03.406Z"
+sidebar_label: Dev and Prod envs
 ---
 
 When you've set up Plaid connecting to their Sandbox environment, and confirmed that you can connect and pull data from Plaid's sandbox, you might want to connect to Plaid Development or Production to complete your testing.
@@ -23,7 +22,7 @@ Access to the production environment is available on [request from Plaid](https:
 
 :::caution Creating new companies after switching environments
 
-To avoid data inconsistencies, we recommend that you create new companies when you change environments. Any companies originally created in another environment are deauthorised and require [reauthorisation](/reauthorise-url-links).
+To avoid data inconsistencies, we recommend that you create new companies when you change environments. Any companies originally created in another environment are deauthorized and require [reauthorization](/integrations/banking/plaid/reauthorise-url-links).
 :::
 
 ## Switch environments using the Codat portal

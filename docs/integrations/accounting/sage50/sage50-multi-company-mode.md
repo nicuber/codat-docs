@@ -1,9 +1,8 @@
 ---
-title: "Multi-company mode for Sage 50 (UK)"
+title: "Multi-company mode for Sage 50 (UK & Ireland)"
 slug: "sage50-multi-company-mode"
-description: "Use our Sage 50 (UK) connector when multi-company mode is enabled."
-createdAt: "2019-11-29T13:49:32.659Z"
-updatedAt: "2022-12-12T16:43:05.020Z"
+description: "Use our Sage 50 (UK & Ireland) connector when multi-company mode is enabled."
+sidebar_label: Multi-company mode
 ---
 
 When multi-company mode is enabled in Sage 50, a single installed Sage 50 connector can sync with multiple Sage 50 company data files.
@@ -66,4 +65,4 @@ When syncing all companies for a connector in multi-company mode, you can't stop
 
 However, you can choose to cancel any companies that are yet to begin syncing but are 'queued' to do so, i.e. pending syncs. _Queued syncs_ are represented by an empty cloud icon in the multi-company connector view.
 
-All companies that were due to sync, but not currently syncing at the time of clearing the queue, will not be manually synced. All companies will then continue to sync based on your [Data type settings](/data-sync-settings).
+All companies that were due to sync, but not currently syncing at the time of clearing the queue, will not be manually synced. All companies will then continue to sync based on your [Data type settings](/core-concepts/data-type-settings).

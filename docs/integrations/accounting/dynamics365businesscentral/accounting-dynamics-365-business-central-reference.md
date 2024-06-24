@@ -2,8 +2,7 @@
 title: "Dynamics 365 Business Central integration reference"
 slug: "accounting-dynamics-365-business-central-reference"
 description: "Things to know when synchronizing data with Dynamics 365 Business Central."
-createdAt: "2020-08-24T14:06:50.911Z"
-updatedAt: "2022-12-20T09:47:28.078Z"
+sidebar_label: Reference
 ---
 
 The way in which Dynamics 365 Business Central handles certain data types affects the data that is pulled from the accounting platform into Codat. This article highlights things to look out for when you view datasets.
@@ -29,7 +28,7 @@ Line items of invoices, bills, credit notes, and bill credit notes without linke
 
 ## Bill credit notes and currencies
 
-When the currency of a [bill credit note](/data-model/accounting/-billcreditnotes) is not set by the supplier, Codat uses the local, or base currency of the company. In Business Central, this is the **LCY code** on the **General Ledger Setup** page.
+When the currency of a [bill credit note](/accounting-api#/schemas/billcreditnotes) is not set by the supplier, Codat uses the local, or base currency of the company. In Business Central, this is the **LCY code** on the **General Ledger Setup** page.
 
 ## Direct incomes
 
@@ -43,13 +42,9 @@ When pushing Customers or Suppliers to Business Central, Codat auto-creates a pl
 
 If the description was edited in Business Central, a validation error is returned on subsequent pushes. If the code was edited, the placeholder payment method is recreated.
 
-## Pushing Journal entries
-
-Pushing Journals to Business Central is not currently supported by the integration. Therefore, when pushing Journal entries to Business Central all entries are posted to the _general journal_.
-
 ## Tracking categories
 
-When pulling Tracking categories from Business Central, the `subCategories` field within the [tracking category tree model](/data-model/accounting/-trackingcategories#tracking-category-tree-model) is not populated. This kind of relationship can't be modeled in Business Central.
+When pulling Tracking categories from Business Central, the `subCategories` field within the [tracking category tree model](/accounting-api#/schemas/TrackingCategoryTree) is not populated. This kind of relationship can't be modeled in Business Central.
 
 Tracking categories are not updated on Bills when sending PUT or POST requests.
 
@@ -58,3 +53,7 @@ Tracking categories are not updated on Bills when sending PUT or POST requests.
 To successfully pull Transfers from Business Central, you must have followed the guidance for entering transfers described in the Dynamics 365 documentation. For more information, see <a className="external" href="https://learn.microsoft.com/en-gb/dynamics365/business-central/bank-how-transfer-bank-funds" target="_blank">Transfer Bank Funds</a>.
 
 Codat only pulls Transfers that consist of exactly two journal entry lines (each of which impacts a bank account). A journal entry containing additional lines is not mapped to Codat as a Transfer.
+
+## Paying multiple invoices or bills
+
+We do not currently support paying multiple invoices or bills, from a single payment or billPayment push. This means that the payloads of these objects must have a single line item. 

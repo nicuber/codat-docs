@@ -2,13 +2,12 @@
 title: "Set up the Sage 200cloud integration"
 slug: "accounting-sage200-setup"
 description: "Explore our API integration with Sage 200cloud."
-createdAt: "2021-02-23T10:52:24.650Z"
-updatedAt: "2023-01-13T15:13:31.523Z"
+sidebar_label: Setup
 ---
 
 ## About Sage 200cloud
 
-Sage 200cloud is an accounting solution for small to medium-sized businesses. This cloud-based application provides a flexible tool for organisations to manage their stock, financials, sales, purchases, and sales orders.
+Sage 200cloud is an accounting solution for small to medium-sized businesses. This cloud-based application provides a flexible tool for organizations to manage their stock, financials, sales, purchases, and sales orders.
 
 :::note Supported versions
 
@@ -21,7 +20,7 @@ Codat currently supports Sage 200cloud Standard **only**.
 
 Sage has recently modified the way applications and integrations are authenticated in Sage 200 API. You can find out more about the changes in <a href="https://gb-kb.sage.com/portal/app/portlets/results/viewsolution.jsp?solutionid=201204115644533" target="_blank">Sage 200 API - Guide to Sage ID Changes</a>.
 
-If you're a Codat **customer who already has an account** with Sage, please refer to section [Request new credentials](/accounting-sage200-setup#section-request-new-credentials) below. **Customers who need to set up their Sage accounts** are requested to follow the process described below.
+If you're a Codat **customer who already has an account** with Sage, please refer to section [Request new credentials](/integrations/accounting/sage200/accounting-sage200-setup#section-request-new-credentials) below. **Customers who need to set up their Sage accounts** are requested to follow the process described below.
 :::
 
 Before you can access data from customers using Sage 200cloud for their accounting, you need to set up a Sage 200cloud integration in the Codat Portal. You'll need to:
@@ -33,7 +32,7 @@ Before you can access data from customers using Sage 200cloud for their accounti
 
 ## Request an account and obtain API credentials
 
-1. Request an account from Sage by filling out the <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=fN0yPvZBLUmho8WOsCz0-AGuQhvCTtZBjXDsFiNmzk5UQ0wzVUtLUkRNSDMxTEpZVzBWRDYxQzZVUS4u&wdLOR=c7B36958C-ED98-49A8-B339-55C8DDC118ED" target="_blank">Sage Developer Services API - Request an Account</a> form. Provide the required details and choose _Sage 200 Standard API_ as the application you are developing for.
+1. Request an account from Sage by filling out the <a href="https://sage.az1.qualtrics.com/jfe/form/SV_2fRebFy4s4PWLmC" target="_blank">Sage Developer Services API - Request an Account</a> form. Provide the required details and choose _Sage 200 Standard API_ as the application you are developing for.
 2. Once your account has been created you will receive an email from Sage with a link to a my.sage.co.uk page, where you can sign in to get your account number under My account > My accounts.
 3. Request your API credentials by filling out the <a href="https://sage.az1.qualtrics.com/jfe/form/SV_bQ14AM1zXki0msm" target="_blank">Sage 200 API Credential Request Form</a>.  
    When your API credentials have been generated, Sage will email your Client ID and Secret to you.
@@ -105,12 +104,12 @@ Unfortunately, you can't use a trial account to test your integration. Sage does
 :::
 
 1. Set up some test data in your Sage200cloud account. For example, some new or amended invoices.
-2. Next, go to the Codat Portal where you've enabled your integration and [create a test company](/other/portal/companies#add-a-new-company).
+2. Next, go to the Codat Portal where you've enabled your integration and [create a test company](/configure/portal/companies#add-a-new-company).
 3. Find the Link URL for your test company. Select **Request data** next to the company name.
 4. Use the Link URL to connect your Sage 200cloud account.
    - When Link opens, select **Sage200cloud**, and then select **Continue to Sage 200cloud**.
    - Log in to your Sage 200cloud account.
-   - Authorise access to your account details.
+   - Authorize access to your account details.
 5. Make sure that test data from your account is displayed for your test company in the Codat Portal.
 
 ## Request new credentials
@@ -135,5 +134,5 @@ If you link a Codat test company to one of the [Sage sandbox accounts](https://d
 :::
 
 :::note Tax rates on line items
-Due to a Sage 200cloud limitation, tax rates on line items for invoices, credit notes, bills, and bill credit notes appear differently to other integrations. For more information, see [Sage 200cloud limitations](/sage200-limitations).
+Due to a Sage 200cloud limitation, tax rates on line items for invoices, credit notes, bills, and bill credit notes appear differently to other integrations. For more information, see [Sage 200cloud limitations](/integrations/accounting/sage200/sage200-limitations).
 :::
